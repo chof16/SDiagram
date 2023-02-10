@@ -1,0 +1,16 @@
+{
+	"extends": "../base-tsconfig.json",
+	"compilerOptions": {
+    "jsx": "react",
+    "types": ["reflect-metadata", "node"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "declaration": false,
+    "declarationMap": false
+  },
+  "include": [
+    "src"
+  ]
+}

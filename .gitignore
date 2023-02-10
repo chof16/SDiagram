@@ -1,0 +1,41 @@
+# macOS
+.DS_Store
+
+# npm/yarn
+extension/node_modules/
+webview/node_modules/
+package-lock.json
+yarn.lock
+.yarn-integrity
+/extension/pack/
+
+# logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# generated build files
+build/
+bin/
+xtext-gen/
+xtend-gen/
+.gradle/
+/.metadata/
+src-gen/
+lib
+dist
+.vscode-test
+out
+pack
+
+# other files/folders
+org.eclipse.buildship.core.prefs
+org.eclipse.xtend.core.Xtend.prefs
+org.eclipse.xtext.java.Java.prefs
+target
+.metadata
+*.vsix
+
+thesis-glaser.pdf
