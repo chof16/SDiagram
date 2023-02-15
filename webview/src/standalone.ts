@@ -1,8 +1,24 @@
 import createContainer from "./di.config";
-import { TYPES, LocalModelSource } from 'sprotty';
+import { TYPES } from 'sprotty';
+import { ClassDiagramModelSource } from "./model-source";
 
-export default function runClassDiagram() {
+
+
+export default function runClassDiagram(): void {
+
     const container = createContainer('sprotty');
-    const modelSource = container.get<LocalModelSource>(TYPES.ModelSource);
+    let ids=document.currentScript.getAttribute("ids").split(",")
+    let labels=document.currentScript.getAttribute("labels").split(",")
+    let srcId=document.currentScript.getAttribute("srcIds").split(",")
+    let tgtId=document.currentScript.getAttribute("tgtIds").split(",")
+
+    const modelSource = container.get<ClassDiagramModelSource>(TYPES.ModelSource);
+    modelSource.updateModel();
+
+
+
+
+
+modelSource.modifyGraph(ids,labels,srcId,tgtId);
     modelSource.updateModel();
 }

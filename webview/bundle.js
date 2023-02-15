@@ -1,3 +1,5 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+(function (process){(function (){
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -27277,66 +27279,78 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /*!**************************!*\
   !*** ./src/di.config.ts ***!
   \**************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var inversify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! inversify */ "./node_modules/inversify/lib/inversify.js");
+/* harmony import */ var sprotty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
+/* harmony import */ var sprotty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sprotty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var sprotty_lib_features_edge_intersection_di_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sprotty/lib/features/edge-intersection/di.config */ "./node_modules/sprotty/lib/features/edge-intersection/di.config.js");
+/* harmony import */ var _views__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views */ "./src/views.tsx");
+/* harmony import */ var _popup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./popup */ "./src/popup.ts");
+/* harmony import */ var _model_source__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./model-source */ "./src/model-source.ts");
+/* harmony import */ var _model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./model */ "./src/model.ts");
+/* harmony import */ var sprotty_lib_features_routing_bezier_edge_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! sprotty/lib/features/routing/bezier-edge-router */ "./node_modules/sprotty/lib/features/routing/bezier-edge-router.js");
+/* harmony import */ var sprotty_lib_features_routing_bezier_edge_router__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(sprotty_lib_features_routing_bezier_edge_router__WEBPACK_IMPORTED_MODULE_7__);
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const inversify_1 = __webpack_require__(/*! inversify */ "./node_modules/inversify/lib/inversify.js");
-const sprotty_1 = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
-const di_config_1 = __webpack_require__(/*! sprotty/lib/features/edge-intersection/di.config */ "./node_modules/sprotty/lib/features/edge-intersection/di.config.js");
-const views_1 = __webpack_require__(/*! ./views */ "./src/views.tsx");
-const popup_1 = __webpack_require__(/*! ./popup */ "./src/popup.ts");
-const model_source_1 = __webpack_require__(/*! ./model-source */ "./src/model-source.ts");
-const model_1 = __webpack_require__(/*! ./model */ "./src/model.ts");
-const bezier_edge_router_1 = __webpack_require__(/*! sprotty/lib/features/routing/bezier-edge-router */ "./node_modules/sprotty/lib/features/routing/bezier-edge-router.js");
-exports["default"] = (containerId) => {
+
+
+
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((containerId) => {
     __webpack_require__(/*! ../css/diagram.css */ "./css/diagram.css");
-    const classDiagramModule = new inversify_1.ContainerModule((bind, unbind, isBound, rebind) => {
-        bind(sprotty_1.TYPES.ModelSource).to(model_source_1.ClassDiagramModelSource).inSingletonScope();
-        rebind(sprotty_1.TYPES.ILogger).to(sprotty_1.ConsoleLogger).inSingletonScope();
-        rebind(sprotty_1.TYPES.LogLevel).toConstantValue(sprotty_1.LogLevel.log);
-        bind(sprotty_1.TYPES.IPopupModelProvider).to(popup_1.PopupModelProvider);
-        bind(sprotty_1.TYPES.ICommandPaletteActionProvider).to(sprotty_1.RevealNamedElementActionProvider);
-        bind(sprotty_1.TYPES.ISnapper).to(sprotty_1.CenterGridSnapper);
-        bind(bezier_edge_router_1.BezierMouseListener).toSelf().inSingletonScope();
-        bind(sprotty_1.TYPES.MouseListener).toService(bezier_edge_router_1.BezierMouseListener);
+    const classDiagramModule = new inversify__WEBPACK_IMPORTED_MODULE_0__.ContainerModule((bind, unbind, isBound, rebind) => {
+        bind(sprotty__WEBPACK_IMPORTED_MODULE_1__.TYPES.ModelSource).to(_model_source__WEBPACK_IMPORTED_MODULE_5__.ClassDiagramModelSource).inSingletonScope();
+        rebind(sprotty__WEBPACK_IMPORTED_MODULE_1__.TYPES.ILogger).to(sprotty__WEBPACK_IMPORTED_MODULE_1__.ConsoleLogger).inSingletonScope();
+        rebind(sprotty__WEBPACK_IMPORTED_MODULE_1__.TYPES.LogLevel).toConstantValue(sprotty__WEBPACK_IMPORTED_MODULE_1__.LogLevel.log);
+        bind(sprotty__WEBPACK_IMPORTED_MODULE_1__.TYPES.IPopupModelProvider).to(_popup__WEBPACK_IMPORTED_MODULE_4__.PopupModelProvider);
+        bind(sprotty__WEBPACK_IMPORTED_MODULE_1__.TYPES.ICommandPaletteActionProvider).to(sprotty__WEBPACK_IMPORTED_MODULE_1__.RevealNamedElementActionProvider);
+        bind(sprotty__WEBPACK_IMPORTED_MODULE_1__.TYPES.ISnapper).to(sprotty__WEBPACK_IMPORTED_MODULE_1__.CenterGridSnapper);
+        bind(sprotty_lib_features_routing_bezier_edge_router__WEBPACK_IMPORTED_MODULE_7__.BezierMouseListener).toSelf().inSingletonScope();
+        bind(sprotty__WEBPACK_IMPORTED_MODULE_1__.TYPES.MouseListener).toService(sprotty_lib_features_routing_bezier_edge_router__WEBPACK_IMPORTED_MODULE_7__.BezierMouseListener);
         const context = { bind, unbind, isBound, rebind };
-        (0, sprotty_1.configureModelElement)(context, 'graph', sprotty_1.SGraph, sprotty_1.SGraphView);
-        (0, sprotty_1.configureModelElement)(context, 'node:package', sprotty_1.RectangularNode, views_1.NodeView);
-        (0, sprotty_1.configureModelElement)(context, 'node:class', model_1.ClassNode, views_1.NodeView, {
-            enable: [sprotty_1.expandFeature, sprotty_1.nameFeature, sprotty_1.withEditLabelFeature]
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'graph', sprotty__WEBPACK_IMPORTED_MODULE_1__.SGraph, sprotty__WEBPACK_IMPORTED_MODULE_1__.SGraphView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'node:package', sprotty__WEBPACK_IMPORTED_MODULE_1__.RectangularNode, _views__WEBPACK_IMPORTED_MODULE_3__.NodeView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'node:class', _model__WEBPACK_IMPORTED_MODULE_6__.ClassNode, _views__WEBPACK_IMPORTED_MODULE_3__.NodeView, {
+            enable: [sprotty__WEBPACK_IMPORTED_MODULE_1__.expandFeature, sprotty__WEBPACK_IMPORTED_MODULE_1__.nameFeature, sprotty__WEBPACK_IMPORTED_MODULE_1__.withEditLabelFeature]
         });
-        (0, sprotty_1.configureModelElement)(context, 'label:heading', model_1.ClassLabel, sprotty_1.SLabelView, {
-            enable: [sprotty_1.editLabelFeature]
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'label:heading', _model__WEBPACK_IMPORTED_MODULE_6__.ClassLabel, sprotty__WEBPACK_IMPORTED_MODULE_1__.SLabelView, {
+            enable: [sprotty__WEBPACK_IMPORTED_MODULE_1__.editLabelFeature]
         });
-        (0, sprotty_1.configureModelElement)(context, 'label:text', model_1.PropertyLabel, sprotty_1.SLabelView, {
-            enable: [sprotty_1.editLabelFeature]
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'label:text', _model__WEBPACK_IMPORTED_MODULE_6__.PropertyLabel, sprotty__WEBPACK_IMPORTED_MODULE_1__.SLabelView, {
+            enable: [sprotty__WEBPACK_IMPORTED_MODULE_1__.editLabelFeature]
         });
-        (0, sprotty_1.configureModelElement)(context, 'comp:comp', sprotty_1.SCompartment, sprotty_1.SCompartmentView);
-        (0, sprotty_1.configureModelElement)(context, 'comp:header', sprotty_1.SCompartment, sprotty_1.SCompartmentView);
-        (0, sprotty_1.configureModelElement)(context, 'comp:pkgcontent', sprotty_1.SCompartment, sprotty_1.SCompartmentView);
-        (0, sprotty_1.configureModelElement)(context, 'edge:straight', sprotty_1.SEdge, sprotty_1.JumpingPolylineEdgeView);
-        (0, sprotty_1.configureModelElement)(context, 'edge:bezier', sprotty_1.SEdge, sprotty_1.BezierCurveEdgeView);
-        (0, sprotty_1.configureModelElement)(context, 'html', sprotty_1.HtmlRoot, sprotty_1.HtmlRootView);
-        (0, sprotty_1.configureModelElement)(context, 'pre-rendered', sprotty_1.PreRenderedElement, sprotty_1.PreRenderedView);
-        (0, sprotty_1.configureModelElement)(context, 'button:expand', sprotty_1.SButton, sprotty_1.ExpandButtonView);
-        (0, sprotty_1.configureModelElement)(context, 'routing-point', sprotty_1.SRoutingHandle, sprotty_1.SRoutingHandleView);
-        (0, sprotty_1.configureModelElement)(context, 'volatile-routing-point', sprotty_1.SRoutingHandle, sprotty_1.SRoutingHandleView);
-        (0, sprotty_1.configureModelElement)(context, 'bezier-create-routing-point', sprotty_1.SRoutingHandle, sprotty_1.SBezierCreateHandleView);
-        (0, sprotty_1.configureModelElement)(context, 'bezier-remove-routing-point', sprotty_1.SRoutingHandle, sprotty_1.SBezierCreateHandleView);
-        (0, sprotty_1.configureModelElement)(context, 'bezier-routing-point', sprotty_1.SRoutingHandle, sprotty_1.SBezierControlHandleView);
-        (0, sprotty_1.configureViewerOptions)(context, {
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'comp:comp', sprotty__WEBPACK_IMPORTED_MODULE_1__.SCompartment, sprotty__WEBPACK_IMPORTED_MODULE_1__.SCompartmentView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'comp:header', sprotty__WEBPACK_IMPORTED_MODULE_1__.SCompartment, sprotty__WEBPACK_IMPORTED_MODULE_1__.SCompartmentView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'comp:pkgcontent', sprotty__WEBPACK_IMPORTED_MODULE_1__.SCompartment, sprotty__WEBPACK_IMPORTED_MODULE_1__.SCompartmentView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'edge:straight', sprotty__WEBPACK_IMPORTED_MODULE_1__.SEdge, sprotty__WEBPACK_IMPORTED_MODULE_1__.JumpingPolylineEdgeView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'edge:bezier', sprotty__WEBPACK_IMPORTED_MODULE_1__.SEdge, sprotty__WEBPACK_IMPORTED_MODULE_1__.BezierCurveEdgeView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'html', sprotty__WEBPACK_IMPORTED_MODULE_1__.HtmlRoot, sprotty__WEBPACK_IMPORTED_MODULE_1__.HtmlRootView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'pre-rendered', sprotty__WEBPACK_IMPORTED_MODULE_1__.PreRenderedElement, sprotty__WEBPACK_IMPORTED_MODULE_1__.PreRenderedView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'button:expand', sprotty__WEBPACK_IMPORTED_MODULE_1__.SButton, sprotty__WEBPACK_IMPORTED_MODULE_1__.ExpandButtonView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'routing-point', sprotty__WEBPACK_IMPORTED_MODULE_1__.SRoutingHandle, sprotty__WEBPACK_IMPORTED_MODULE_1__.SRoutingHandleView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'volatile-routing-point', sprotty__WEBPACK_IMPORTED_MODULE_1__.SRoutingHandle, sprotty__WEBPACK_IMPORTED_MODULE_1__.SRoutingHandleView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'bezier-create-routing-point', sprotty__WEBPACK_IMPORTED_MODULE_1__.SRoutingHandle, sprotty__WEBPACK_IMPORTED_MODULE_1__.SBezierCreateHandleView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'bezier-remove-routing-point', sprotty__WEBPACK_IMPORTED_MODULE_1__.SRoutingHandle, sprotty__WEBPACK_IMPORTED_MODULE_1__.SBezierCreateHandleView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureModelElement)(context, 'bezier-routing-point', sprotty__WEBPACK_IMPORTED_MODULE_1__.SRoutingHandle, sprotty__WEBPACK_IMPORTED_MODULE_1__.SBezierControlHandleView);
+        (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.configureViewerOptions)(context, {
             needsClientLayout: true,
             baseDiv: containerId
         });
     });
-    const container = new inversify_1.Container();
-    (0, sprotty_1.loadDefaultModules)(container);
-    container.load(di_config_1.default);
+    const container = new inversify__WEBPACK_IMPORTED_MODULE_0__.Container();
+    (0,sprotty__WEBPACK_IMPORTED_MODULE_1__.loadDefaultModules)(container);
+    container.load(sprotty_lib_features_edge_intersection_di_config__WEBPACK_IMPORTED_MODULE_2__["default"]);
     container.load(classDiagramModule);
     return container;
-};
+});
 
 
 /***/ }),
@@ -27345,25 +27359,29 @@ exports["default"] = (containerId) => {
 /*!*****************************!*\
   !*** ./src/model-source.ts ***!
   \*****************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ClassDiagramModelSource": () => (/* binding */ ClassDiagramModelSource)
+/* harmony export */ });
+/* harmony import */ var inversify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! inversify */ "./node_modules/inversify/lib/inversify.js");
+/* harmony import */ var sprotty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
+/* harmony import */ var sprotty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sprotty__WEBPACK_IMPORTED_MODULE_1__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ClassDiagramModelSource = void 0;
-const inversify_1 = __webpack_require__(/*! inversify */ "./node_modules/inversify/lib/inversify.js");
-const sprotty_1 = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
+
+
 let graph;
-let ClassDiagramModelSource = class ClassDiagramModelSource extends sprotty_1.LocalModelSource {
+let ClassDiagramModelSource = class ClassDiagramModelSource extends sprotty__WEBPACK_IMPORTED_MODULE_1__.LocalModelSource {
     constructor() {
         super();
         this.currentRoot = this.initializeModel();
@@ -27395,23 +27413,16 @@ let ClassDiagramModelSource = class ClassDiagramModelSource extends sprotty_1.Lo
                 id: element,
                 type: "node:class",
                 position: {
-                    x: calculatePosition(i),
-                    y: calculatePosition(i)
+                    x: 100 + element * 20,
+                    y: 100 + element * 20
                 },
                 layout: 'vbox',
                 children: [
                     {
-                        id: 'node' + i + '_header',
-                        type: 'comp:header',
-                        layout: 'hbox',
-                        children: [
-                            {
-                                id: "node" + i + "header",
-                                type: 'label:heading',
-                                text: labels[i]
-                            }
-                        ]
-                    },
+                        id: "node" + i + "_header",
+                        type: "comp:header",
+                        text: labels[i]
+                    }
                 ]
             };
             graph.children.push(node);
@@ -27431,17 +27442,10 @@ let ClassDiagramModelSource = class ClassDiagramModelSource extends sprotty_1.Lo
     }
 };
 ClassDiagramModelSource = __decorate([
-    (0, inversify_1.injectable)(),
+    (0,inversify__WEBPACK_IMPORTED_MODULE_0__.injectable)(),
     __metadata("design:paramtypes", [])
 ], ClassDiagramModelSource);
-exports.ClassDiagramModelSource = ClassDiagramModelSource;
-function calculatePosition(elemento) {
-    if (elemento == 2) {
-        return 0;
-    }
-    else
-        return 100 * elemento + 100;
-}
+
 
 
 /***/ }),
@@ -27450,14 +27454,19 @@ function calculatePosition(elemento) {
 /*!**********************!*\
   !*** ./src/model.ts ***!
   \**********************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ClassLabel": () => (/* binding */ ClassLabel),
+/* harmony export */   "ClassNode": () => (/* binding */ ClassNode),
+/* harmony export */   "PropertyLabel": () => (/* binding */ PropertyLabel)
+/* harmony export */ });
+/* harmony import */ var sprotty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
+/* harmony import */ var sprotty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sprotty__WEBPACK_IMPORTED_MODULE_0__);
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.PropertyLabel = exports.ClassLabel = exports.ClassNode = void 0;
-const sprotty_1 = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
-class ClassNode extends sprotty_1.RectangularNode {
+class ClassNode extends sprotty__WEBPACK_IMPORTED_MODULE_0__.RectangularNode {
     constructor() {
         super(...arguments);
         this.expanded = false;
@@ -27466,7 +27475,7 @@ class ClassNode extends sprotty_1.RectangularNode {
         const headerComp = this.children.find(element => element.type === 'comp:header');
         if (headerComp) {
             const label = headerComp.children.find(element => element.type === 'label:heading');
-            if (label && (0, sprotty_1.isEditableLabel)(label)) {
+            if (label && (0,sprotty__WEBPACK_IMPORTED_MODULE_0__.isEditableLabel)(label)) {
                 return label;
             }
         }
@@ -27479,13 +27488,10 @@ class ClassNode extends sprotty_1.RectangularNode {
         return this.id;
     }
 }
-exports.ClassNode = ClassNode;
-class ClassLabel extends sprotty_1.SLabel {
+class ClassLabel extends sprotty__WEBPACK_IMPORTED_MODULE_0__.SLabel {
 }
-exports.ClassLabel = ClassLabel;
-class PropertyLabel extends sprotty_1.SLabel {
+class PropertyLabel extends sprotty__WEBPACK_IMPORTED_MODULE_0__.SLabel {
 }
-exports.PropertyLabel = PropertyLabel;
 
 
 /***/ }),
@@ -27494,23 +27500,27 @@ exports.PropertyLabel = PropertyLabel;
 /*!**********************!*\
   !*** ./src/popup.ts ***!
   \**********************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PopupModelProvider": () => (/* binding */ PopupModelProvider)
+/* harmony export */ });
+/* harmony import */ var inversify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! inversify */ "./node_modules/inversify/lib/inversify.js");
+/* harmony import */ var sprotty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
+/* harmony import */ var sprotty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sprotty__WEBPACK_IMPORTED_MODULE_1__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.PopupModelProvider = void 0;
-const inversify_1 = __webpack_require__(/*! inversify */ "./node_modules/inversify/lib/inversify.js");
-const sprotty_1 = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
+
+
 let PopupModelProvider = class PopupModelProvider {
     getPopupModel(request, element) {
         if (element !== undefined && element.type === 'node:class') {
@@ -27536,13 +27546,13 @@ let PopupModelProvider = class PopupModelProvider {
     }
 };
 __decorate([
-    (0, inversify_1.inject)(sprotty_1.TYPES.IModelFactory),
+    (0,inversify__WEBPACK_IMPORTED_MODULE_0__.inject)(sprotty__WEBPACK_IMPORTED_MODULE_1__.TYPES.IModelFactory),
     __metadata("design:type", Object)
 ], PopupModelProvider.prototype, "modelFactory", void 0);
 PopupModelProvider = __decorate([
-    (0, inversify_1.injectable)()
+    (0,inversify__WEBPACK_IMPORTED_MODULE_0__.injectable)()
 ], PopupModelProvider);
-exports.PopupModelProvider = PopupModelProvider;
+
 
 
 /***/ }),
@@ -27551,25 +27561,84 @@ exports.PopupModelProvider = PopupModelProvider;
 /*!***************************!*\
   !*** ./src/standalone.ts ***!
   \***************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ runClassDiagram)
+/* harmony export */ });
+/* harmony import */ var _di_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./di.config */ "./src/di.config.ts");
+/* harmony import */ var sprotty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
+/* harmony import */ var sprotty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sprotty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! fs */ "fs");
+/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_2__);
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const di_config_1 = __webpack_require__(/*! ./di.config */ "./src/di.config.ts");
-const sprotty_1 = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
+
+
+const nodes = /"nodes"/;
+const edges = /"edges"/;
+const elementos = /},/;
+let nodos, flechas;
 function runClassDiagram() {
-    const container = (0, di_config_1.default)('sprotty');
-    let ids = document.currentScript.getAttribute("ids").split(",");
-    let labels = document.currentScript.getAttribute("labels").split(",");
-    let srcId = document.currentScript.getAttribute("srcIds").split(",");
-    let tgtId = document.currentScript.getAttribute("tgtIds").split(",");
-    const modelSource = container.get(sprotty_1.TYPES.ModelSource);
+    const container = (0,_di_config__WEBPACK_IMPORTED_MODULE_0__["default"])('sprotty');
+    console.log(document.body.getElementsByTagName('body'));
+    let params = document.body.getElementsByTagName('body');
+    let query = params[0].classList;
+    let file = query[0];
+    let datos = (0,fs__WEBPACK_IMPORTED_MODULE_2__.readFileSync)(file, { encoding: "utf-8", flag: "r" });
+    const modelSource = container.get(sprotty__WEBPACK_IMPORTED_MODULE_1__.TYPES.ModelSource);
     modelSource.updateModel();
+    let comienzoFlecha = datos.match(edges);
+    let comienzoNodo = datos.match(nodes);
+    if (comienzoNodo.index < comienzoFlecha.index) {
+        nodos = datos.slice(comienzoNodo.index, comienzoFlecha.index - 1);
+        flechas = datos.slice(comienzoFlecha.index);
+    }
+    else {
+        flechas = datos.slice(comienzoFlecha.index, comienzoNodo.index - 1);
+        nodos = datos.slice(comienzoNodo.index);
+    }
+    var elementosNodos = nodos.split(elementos);
+    var elementosFlechas = flechas.split(elementos);
+    var ids = getsIds(elementosNodos);
+    var labels = getsLabels(elementosNodos);
+    let { srcId, tgtId } = getsRelaciones(elementosFlechas);
     modelSource.modifyGraph(ids, labels, srcId, tgtId);
     modelSource.updateModel();
 }
-exports["default"] = runClassDiagram;
+function getsIds(elementosNodos) {
+    let ids = [];
+    let i = 0;
+    elementosNodos.forEach(element => {
+        ids[i] = element.match(/\d+/)[0];
+        i++;
+    });
+    return ids;
+}
+function getsLabels(elementosNodos) {
+    var labels = [];
+    var i = 0;
+    elementosNodos.forEach(element => {
+        var startNumber = element.lastIndexOf(":");
+        var endNumber = element.search("\"\n", startNumber);
+        var elemntoEntreComillas = element.slice(startNumber, endNumber).trim();
+        labels[i] = elemntoEntreComillas.slice(elemntoEntreComillas.indexOf("\"") + 1, elemntoEntreComillas.length);
+        i++;
+    });
+    return labels;
+}
+function getsRelaciones(elementosFlechas) {
+    var srcId = [];
+    var tgtId = [];
+    var i = 0;
+    elementosFlechas.forEach(element => {
+        srcId[i] = element.match(/\d+/)[0];
+        tgtId[i] = element.match(/\d+\n/)[0].slice(0, element.match(/\d+\n/)[0].length - 1);
+        i++;
+    });
+    return { srcId, tgtId };
+}
 
 
 /***/ }),
@@ -27578,37 +27647,53 @@ exports["default"] = runClassDiagram;
 /*!***********************!*\
   !*** ./src/views.tsx ***!
   \***********************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "NodeView": () => (/* binding */ NodeView)
+/* harmony export */ });
+/* harmony import */ var sprotty_lib_lib_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sprotty/lib/lib/jsx */ "./node_modules/sprotty/lib/lib/jsx.js");
+/* harmony import */ var sprotty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
+/* harmony import */ var sprotty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sprotty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var inversify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! inversify */ "./node_modules/inversify/lib/inversify.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.NodeView = void 0;
 /** @jsx svg */
-const jsx_1 = __webpack_require__(/*! sprotty/lib/lib/jsx */ "./node_modules/sprotty/lib/lib/jsx.js");
-const sprotty_1 = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
-const inversify_1 = __webpack_require__(/*! inversify */ "./node_modules/inversify/lib/inversify.js");
-let NodeView = class NodeView extends sprotty_1.RectangularNodeView {
+
+
+
+let NodeView = class NodeView extends sprotty__WEBPACK_IMPORTED_MODULE_1__.RectangularNodeView {
     render(node, context, args) {
         if (!this.isVisible(node, context)) {
             return undefined;
         }
-        return (0, jsx_1.svg)("g", null,
-            (0, jsx_1.svg)("rect", { "class-sprotty-node": true, "class-node-package": node.type === 'node:package', "class-node-class": node.type === 'node:class', "class-mouseover": node.hoverFeedback, "class-selected": node.selected, x: "0", y: "0", width: Math.max(node.size.width, 0), height: Math.max(node.size.height, 0) }),
+        return (0,sprotty_lib_lib_jsx__WEBPACK_IMPORTED_MODULE_0__.svg)("g", null,
+            (0,sprotty_lib_lib_jsx__WEBPACK_IMPORTED_MODULE_0__.svg)("rect", { "class-sprotty-node": true, "class-node-package": node.type === 'node:package', "class-node-class": node.type === 'node:class', "class-mouseover": node.hoverFeedback, "class-selected": node.selected, x: "0", y: "0", width: Math.max(node.size.width, 0), height: Math.max(node.size.height, 0) }),
             context.renderChildren(node));
     }
 };
 NodeView = __decorate([
-    (0, inversify_1.injectable)()
+    (0,inversify__WEBPACK_IMPORTED_MODULE_2__.injectable)()
 ], NodeView);
-exports.NodeView = NodeView;
 
+
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs");
 
 /***/ })
 
@@ -27701,26 +27786,218 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-var exports = __webpack_exports__;
 /*!************************!*\
   !*** ./browser-app.ts ***!
   \************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var reflect_metadata__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! reflect-metadata */ "./node_modules/reflect-metadata/Reflect.js");
+/* harmony import */ var reflect_metadata__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(reflect_metadata__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _src_standalone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./src/standalone */ "./src/standalone.ts");
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-__webpack_require__(/*! reflect-metadata */ "./node_modules/reflect-metadata/Reflect.js");
-__webpack_require__(/*! reflect-metadata */ "./node_modules/reflect-metadata/Reflect.js");
-const standalone_1 = __webpack_require__(/*! ./src/standalone */ "./src/standalone.ts");
+
+
 const appDiv = document.getElementById('sprotty-app');
 if (appDiv) {
     const appMode = appDiv.getAttribute('data-app');
     if (appMode === 'class-diagram')
-        (0, standalone_1.default)();
+        (0,_src_standalone__WEBPACK_IMPORTED_MODULE_1__["default"])();
     else
         throw new Error('Dunno what to do :-(');
 }
 
 })();
 
+module.exports = __webpack_exports__;
 /******/ })()
 ;
-//# sourceMappingURL=bundle.js.map
+
+}).call(this)}).call(this,require('_process'))
+},{"_process":3,"fs":2}],2:[function(require,module,exports){
+
+},{}],3:[function(require,module,exports){
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+},{}]},{},[1]);
