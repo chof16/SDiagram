@@ -4,7 +4,7 @@ import { ClassDiagramModelSource } from "./model-source";
 
 
 
-export default function runClassDiagram(): void {
+export  function runClassDiagram(): void {
 
     const container = createContainer('sprotty');
     let ids=document.currentScript.getAttribute("ids").split(",")
@@ -21,4 +21,8 @@ export default function runClassDiagram(): void {
 
 modelSource.modifyGraph(ids,labels,srcId,tgtId);
     modelSource.updateModel();
+}
+
+export function createDiagram(): void{
+
 }

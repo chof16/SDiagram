@@ -14,6 +14,10 @@
         {
             "command": "diagram.open",
             "title": "Create Diagram"
+        },
+        {
+          "command": "diagrama.workspace",
+          "title": "Generate Diagram of Workspace Project"
         }
     ]
 },
