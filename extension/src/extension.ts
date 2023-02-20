@@ -58,20 +58,21 @@ export function activate(context: vscode.ExtensionContext) {
         edges: []
       }
       let idGlobal = 1
-      let directorios: string[] = []
-      let i = 0;
+      let directorios: any = []
       let uriWorkSpace = vscode.workspace.workspaceFolders[0].uri
       console.log(uriWorkSpace)
       //Archivos y directorios del workspace raiz
       vscode.workspace.fs.readDirectory(uriWorkSpace)
         .then(function (files) {
           files.forEach(function (file) {
+            let obj: any = {}
             if (file[1] == 2 && checkRightFolder(file[0])) {
-              directorios[i] = uriWorkSpace + "/" + file[0]
+              obj.path = (uriWorkSpace + "/" + file[0])
+              obj.id = idGlobal
+              directorios.push(obj)
               console.log(file[0])
               estructura.nodes.push({ id: idGlobal, label: file[0] })
               estructura.edges.push({ srcId: 0, tgtid: idGlobal })
-              i++;
               idGlobal++
             }
             else if (file[1] == 1 && checkRightFile(file[0])) {
@@ -210,27 +211,29 @@ function checkRightFile(file: string) {
   return (file != "yarn.lock" && file != "package-lock.json")
 }
 
-function leerDirectorios(estructura: any, idGlobal: number, directorios: string[]) {
+function leerDirectorios(estructura: any, idGlobal: number, directorios: any[]) {
   directorios.forEach(function (dir) {
-    let directoriosLocales: string[] = []
-    let i = 0;
-    console.log(dir)
-    vscode.workspace.fs.readDirectory(vscode.Uri.parse(dir))
+    let directoriosLocales: any = []
+
+    console.log("dir:" + dir["path"])
+    vscode.workspace.fs.readDirectory(vscode.Uri.parse(dir["path"]))
       .then(function (files) {
         files.forEach(file => {
-
+          let obj: any = {}
           if (file[1] == 2 && checkRightFolder(file[0])) {
-            directoriosLocales[i] = dir + "/" + file[0]
-            console.log(dir + "/" + file[0])
+            obj.path = dir["path"] + "/" + file[0]
+            obj.id = idGlobal
+            console.log("Path"+obj.path)
+            directoriosLocales.push(obj)
             estructura.nodes.push({ id: idGlobal, label: file[0] })
-            estructura.edges.push({ srcId: idGlobal, tgtid: idGlobal })
-            i++;
+            estructura.edges.push({ srcId: dir["id"], tgtid: idGlobal })
+
             idGlobal++
           }
           else if (file[1] == 1 && checkRightFile(file[0])) {
-            console.log(dir + "/" + file[0])
+            console.log(dir["path"]+ "/" + file[0])
             estructura.nodes.push({ id: idGlobal, label: file[0] })
-            estructura.edges.push({ srcId: idGlobal, tgt: idGlobal })
+            estructura.edges.push({ srcId: dir["id"], tgt: idGlobal })
             idGlobal++
           }
         })
