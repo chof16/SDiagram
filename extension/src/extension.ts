@@ -2,7 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import * as path from 'path'
-import { readFileSync } from 'fs';
+import { readFileSync, readdirSync, lstatSync } from 'fs';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -15,7 +15,7 @@ const elementos = /},/
 
 let nodos, flechas;
 
-
+var idGlobal: number
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -53,41 +53,60 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerCommand('diagrama.workspace', () => {
+      const panel = vscode.window.createWebviewPanel(
+        'Diagrama',
+        'Diagrama Ejemplo',
+        vscode.ViewColumn.One,
+
+        {
+          enableScripts: true,
+          localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, "..", "webview",))]
+        }
+      );
+
       let estructura: any = {
         nodes: [],
         edges: []
       }
-      let idGlobal = 1
+      idGlobal = 1
       let directorios: any = []
       let uriWorkSpace = vscode.workspace.workspaceFolders[0].uri
       console.log(uriWorkSpace)
+
       //Archivos y directorios del workspace raiz
-      vscode.workspace.fs.readDirectory(uriWorkSpace)
-        .then(function (files) {
-          files.forEach(function (file) {
-            let obj: any = {}
-            if (file[1] == 2 && checkRightFolder(file[0])) {
-              obj.path = (uriWorkSpace + "/" + file[0])
-              obj.id = idGlobal
-              directorios.push(obj)
-              console.log(file[0])
-              estructura.nodes.push({ id: idGlobal, label: file[0] })
-              estructura.edges.push({ srcId: 0, tgtid: idGlobal })
-              idGlobal++
-            }
-            else if (file[1] == 1 && checkRightFile(file[0])) {
-              console.log(file[0])
-              estructura.nodes.push({ id: idGlobal, label: file[0] })
-              estructura.edges.push({ srcId: 0, tgt: idGlobal })
-              idGlobal++
-            }
-          })
-          if (directorios.length != 0) {
-            estructura = leerDirectorios(estructura, idGlobal, directorios)
-          }
-        })
+      let files = readdirSync(uriWorkSpace.fsPath)
+      let obj: any = {}
+      obj.path = (uriWorkSpace.fsPath)
+      obj.id = 0
+      estructura.nodes.push({ id: 0, label: uriWorkSpace.fsPath })
+
+      files.forEach(function (file) {
+        let obj: any = {}
+        obj.path = (uriWorkSpace.fsPath + "/" + file)
+        obj.id = idGlobal
+        if (lstatSync(obj.path).isDirectory() && checkRightFolder(file)) {
+
+          directorios.push(obj)
+
+          estructura.nodes.push({ id: idGlobal, label: file })
+          estructura.edges.push({ srcId: 0, tgtid: idGlobal })
+          idGlobal++
+        }
+        else if (lstatSync(obj.path).isFile() && checkRightFile(file)) {
+
+          estructura.nodes.push({ id: idGlobal, label: file })
+          estructura.edges.push({ srcId: 0, tgtid: idGlobal })
+          idGlobal++
+        }
+      })
+      if (directorios.length != 0) {
+        estructura = leerDirectorios(estructura, directorios)
+      }
+
 
       console.log(estructura)
+      // And set its HTML content
+      panel.webview.html = getContentFromArray(panel.webview, context, estructura);
     }
     )
   )
@@ -211,37 +230,96 @@ function checkRightFile(file: string) {
   return (file != "yarn.lock" && file != "package-lock.json")
 }
 
-function leerDirectorios(estructura: any, idGlobal: number, directorios: any[]) {
+function leerDirectorios(estructura: any, directorios: any[]) {
   directorios.forEach(function (dir) {
     let directoriosLocales: any = []
 
-    console.log("dir:" + dir["path"])
-    vscode.workspace.fs.readDirectory(vscode.Uri.parse(dir["path"]))
-      .then(function (files) {
-        files.forEach(file => {
-          let obj: any = {}
-          if (file[1] == 2 && checkRightFolder(file[0])) {
-            obj.path = dir["path"] + "/" + file[0]
-            obj.id = idGlobal
-            console.log("Path"+obj.path)
-            directoriosLocales.push(obj)
-            estructura.nodes.push({ id: idGlobal, label: file[0] })
-            estructura.edges.push({ srcId: dir["id"], tgtid: idGlobal })
+    let files = readdirSync(dir["path"])
+    files.forEach(function (file) {
+      let obj: any = {}
+      obj.path = (dir["path"] + "/" + file)
+      obj.id = idGlobal
+      if (lstatSync(obj.path).isDirectory() && checkRightFolder(file)) {
 
-            idGlobal++
-          }
-          else if (file[1] == 1 && checkRightFile(file[0])) {
-            console.log(dir["path"]+ "/" + file[0])
-            estructura.nodes.push({ id: idGlobal, label: file[0] })
-            estructura.edges.push({ srcId: dir["id"], tgt: idGlobal })
-            idGlobal++
-          }
-        })
-        if (directoriosLocales.length != 0) {
-          estructura = leerDirectorios(estructura, idGlobal, directoriosLocales)
-        }
-      })
+        directoriosLocales.push(obj)
+
+        estructura.nodes.push({ id: idGlobal, label: file })
+        estructura.edges.push({ srcId: dir["id"], tgtid: idGlobal })
+        idGlobal++
+      }
+      else if (lstatSync(obj.path).isFile() && checkRightFile(file)) {
+
+        estructura.nodes.push({ id: idGlobal, label: file })
+        estructura.edges.push({ srcId: dir["id"], tgtid: idGlobal })
+        idGlobal++
+      }
+    })
+    if (directoriosLocales.length != 0) {
+      estructura = leerDirectorios(estructura, directoriosLocales)
+    }
 
   })
   return estructura
+}
+
+function getContentFromArray(webview: vscode.Webview, context: vscode.ExtensionContext, estructura: any): string {
+
+
+  const page = vscode.Uri.joinPath(context.extensionUri, "..", "webview", "css", "page.css");
+  const bundle = vscode.Uri.joinPath(context.extensionUri, "..", "webview", "resources", "bundle.js");
+
+  const pageUri = webview.asWebviewUri(page);
+  const bundleUri = webview.asWebviewUri(bundle);
+
+  let ids: any[] = []
+  let labels: any[] = []
+  let srcId: any[] = []
+  let tgtId: any[] = []
+  let i = 0;
+
+  for (let value of estructura.nodes) {
+    ids[i] = value["id"]
+    labels[i] = value["label"]
+    i++
+  }
+  i = 0;
+  for (let value of estructura.edges) {
+    srcId[i] = value["srcId"]
+    tgtId[i] = value["tgtid"]
+    i++
+  }
+  console.log(tgtId)
+  return `<!DOCTYPE html>
+  <html>
+  
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Sprotty Class Diagram Example</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="${pageUri}">
+  </head>
+  
+  <body>
+      <div class="container">
+          <div class="row" id="sprotty-app" data-app="class-diagram">
+              <div class="col-md-10">
+                  <h1>Sprotty Diagram Example</h1>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <div id="sprotty" class="sprotty" />
+              </div>
+              <div class="copyright">
+                  &copy; 2021 <a href="https://www.typefox.io/">TypeFox GmbH</a>.
+              </div>
+          </div>
+      </div>
+      <script src="${bundleUri}" ids="${ids}", labels="${labels}", srcIds="${srcId}", tgtIds="${tgtId}"></script>
+  </body>
+  
+  </html>`
 }

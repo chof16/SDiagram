@@ -27556,6 +27556,7 @@ exports.PopupModelProvider = PopupModelProvider;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.createDiagram = exports.runClassDiagram = void 0;
 const di_config_1 = __webpack_require__(/*! ./di.config */ "./src/di.config.ts");
 const sprotty_1 = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
 function runClassDiagram() {
@@ -27564,12 +27565,19 @@ function runClassDiagram() {
     let labels = document.currentScript.getAttribute("labels").split(",");
     let srcId = document.currentScript.getAttribute("srcIds").split(",");
     let tgtId = document.currentScript.getAttribute("tgtIds").split(",");
+    console.log(ids);
+    console.log(labels);
+    console.log(srcId);
+    console.log(tgtId);
     const modelSource = container.get(sprotty_1.TYPES.ModelSource);
     modelSource.updateModel();
     modelSource.modifyGraph(ids, labels, srcId, tgtId);
     modelSource.updateModel();
 }
-exports["default"] = runClassDiagram;
+exports.runClassDiagram = runClassDiagram;
+function createDiagram() {
+}
+exports.createDiagram = createDiagram;
 
 
 /***/ }),
@@ -27714,7 +27722,9 @@ const appDiv = document.getElementById('sprotty-app');
 if (appDiv) {
     const appMode = appDiv.getAttribute('data-app');
     if (appMode === 'class-diagram')
-        (0, standalone_1.default)();
+        (0, standalone_1.runClassDiagram)();
+    else if (appMode === 'class-diagram-workspace')
+        (0, standalone_1.createDiagram)();
     else
         throw new Error('Dunno what to do :-(');
 }

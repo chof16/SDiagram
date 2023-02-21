@@ -12,6 +12,11 @@ export  function runClassDiagram(): void {
     let srcId=document.currentScript.getAttribute("srcIds").split(",")
     let tgtId=document.currentScript.getAttribute("tgtIds").split(",")
 
+    console.log(ids)
+    console.log(labels)
+    console.log(srcId)
+    console.log(tgtId)
+
     const modelSource = container.get<ClassDiagramModelSource>(TYPES.ModelSource);
     modelSource.updateModel();
 
