@@ -18,6 +18,10 @@
         {
           "command": "diagrama.workspace",
           "title": "Generate Diagram of Workspace Project"
+        },
+        {
+          "command": "diagram.dependencies",
+          "title": "Generate Diagram Dependencies from a File"
         }
     ]
 },

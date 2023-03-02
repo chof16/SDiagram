@@ -27556,7 +27556,7 @@ exports.PopupModelProvider = PopupModelProvider;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.createDiagram = exports.runClassDiagram = void 0;
+exports.runClassDiagram = void 0;
 const di_config_1 = __webpack_require__(/*! ./di.config */ "./src/di.config.ts");
 const sprotty_1 = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
 function runClassDiagram() {
@@ -27575,9 +27575,6 @@ function runClassDiagram() {
     modelSource.updateModel();
 }
 exports.runClassDiagram = runClassDiagram;
-function createDiagram() {
-}
-exports.createDiagram = createDiagram;
 
 
 /***/ }),
@@ -27723,8 +27720,6 @@ if (appDiv) {
     const appMode = appDiv.getAttribute('data-app');
     if (appMode === 'class-diagram')
         (0, standalone_1.runClassDiagram)();
-    else if (appMode === 'class-diagram-workspace')
-        (0, standalone_1.createDiagram)();
     else
         throw new Error('Dunno what to do :-(');
 }
