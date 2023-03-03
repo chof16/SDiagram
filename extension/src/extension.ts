@@ -116,6 +116,10 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.window.showOpenDialog(options).then(fileUri => {
       if (fileUri && fileUri[0]) {
         file = fileUri[0].fsPath;
+        if(!file.includes(".ts") && !file.includes(".js")){
+          vscode.window.showErrorMessage('FIle must be .js or .ts');
+          return
+        }
         console.log("File:" + file);
         const panel = vscode.window.createWebviewPanel(
           'Diagrama',
