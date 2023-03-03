@@ -3,7 +3,8 @@
 import * as vscode from 'vscode';
 import * as path from 'path'
 import { readdirSync, lstatSync } from 'fs';
-import { getContentFromArray, getContentFromFile, getDependenciesFromFile } from './utils/generateHtmlContent';
+import { getContentFromArray, getContentFromFile, 
+  getDependenciesFromFile } from './utils/generateHtmlContent';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed

@@ -197,19 +197,21 @@ function getDependencies(datos: string, file: string): { elements: any, files: a
     var elements = []
     var files = []
     var i = 0
+    var j = 0
     for (let entry of imports) {
         if (entry[0].match(/[\.|\.+]\//)) {
             var inicio = entry[0].indexOf("{")
             var salida = entry[0].indexOf("}")
             var sep = entry[0].split("from")
-            elements[i] = sep[0].slice(inicio + 1, salida).trim()
+            var elemento = sep[0].slice(inicio + 1, salida).trim()
+            if (!elemento.includes("*")) {
+                elements[j] = elemento
 
-            if (elements[i].includes("*"))
-                elements[i] = "*";
+                if (elements[j].includes("import"))
+                    elements[j] = elements[j].replace("import", "")
+                    j++
+            }
 
-            else if (elements[i].includes("import"))
-                elements[i] = elements[i].replace("import", "")
-                
             var filePath
             if (sep[1].match("'")) {
                 filePath = sep[1].slice(sep[1].indexOf("'") + 1, sep[1].lastIndexOf("'"))
