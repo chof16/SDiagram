@@ -1,11 +1,11 @@
 import { Container, ContainerModule } from "inversify";
 import {
     TYPES, configureViewerOptions, SGraphView, SLabelView, SCompartmentView, JumpingPolylineEdgeView,
-    ConsoleLogger, LogLevel, loadDefaultModules, HtmlRootView, PreRenderedView, ExpandButtonView,
+    ConsoleLogger, LogLevel, HtmlRootView, PreRenderedView, ExpandButtonView,
     SRoutingHandleView, PreRenderedElement, HtmlRoot, SGraph, configureModelElement,
     SCompartment, SEdge, SButton, SRoutingHandle, RevealNamedElementActionProvider,
     CenterGridSnapper, expandFeature, nameFeature, withEditLabelFeature, editLabelFeature,
-    RectangularNode, BezierCurveEdgeView, SBezierCreateHandleView, SBezierControlHandleView
+    RectangularNode, BezierCurveEdgeView, SBezierCreateHandleView, SBezierControlHandleView, loadDefaultModules
 } from 'sprotty';
 import edgeIntersectionModule from "sprotty/lib/features/edge-intersection/di.config";
 import { NodeView} from "./views";
@@ -13,13 +13,24 @@ import {PopupModelProvider} from "./popup"
 import { ClassDiagramModelSource } from './model-source';
 import { ClassNode, ClassLabel, PropertyLabel } from "./model";
 import { BezierMouseListener } from 'sprotty/lib/features/routing/bezier-edge-router';
+import ElkConstructor from 'elkjs/lib/elk.bundled';
+import { ElkFactory, ElkLayoutEngine, elkLayoutModule } from 'sprotty-elk/lib/inversify';
 
 export default (containerId: string) => {
 
     require("../css/diagram.css");
-
+    const elkFactory: ElkFactory = () => new ElkConstructor({
+        defaultLayoutOptions:{
+            'algorithm': 'mrtree',
+            'direction' : 'DOWN',
+            "spacing" : "40"
+        },
+        algorithms: ["mrtree"],
+        });
     const classDiagramModule = new ContainerModule((bind, unbind, isBound, rebind) => {
         bind(TYPES.ModelSource).to(ClassDiagramModelSource).inSingletonScope();
+        bind(TYPES.IModelLayoutEngine).toService(ElkLayoutEngine);
+        bind(ElkFactory).toConstantValue(elkFactory);
         rebind(TYPES.ILogger).to(ConsoleLogger).inSingletonScope();
         rebind(TYPES.LogLevel).toConstantValue(LogLevel.log);
         bind(TYPES.IPopupModelProvider).to(PopupModelProvider);
@@ -64,6 +75,6 @@ export default (containerId: string) => {
     const container = new Container();
     loadDefaultModules(container);
     container.load(edgeIntersectionModule);
-    container.load(classDiagramModule);
+    container.load(elkLayoutModule, classDiagramModule);
     return container;
 };

@@ -17,11 +17,13 @@
     "dependencies": {
         "brfs": "^2.0.2",
         "browserify": "^17.0.0",
+        "elkjs": "^0.8.2",
         "file-system": "^2.2.2",
         "jquery": "^3.6.3",
         "reflect-metadata": "^0.1.13",
         "shx": "^0.3.4",
-        "sprotty": "^0.13.0"
+        "sprotty": "^0.13.0",
+        "sprotty-elk": "^0.13.1"
     },
     "type": "commonjs",
     "devDependencies": {

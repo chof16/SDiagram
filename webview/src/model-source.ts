@@ -46,10 +46,6 @@ export class ClassDiagramModelSource extends LocalModelSource {
             let node:SNode ={
                 id: element,
                 type: "node:class",
-                position: {
-                    x: calculatePosition(i),
-                    y: calculatePosition(i)
-                },
                 layout: 'vbox',
                 children: [
                     <SCompartment>{
@@ -82,11 +78,5 @@ export class ClassDiagramModelSource extends LocalModelSource {
         })
 
     }
-}
-function calculatePosition(elemento: number): number {
-    if(elemento==2){
-        return 0;
-    }
-    else return 100*elemento+100;
 }
 
