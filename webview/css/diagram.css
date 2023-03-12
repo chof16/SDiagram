@@ -16,8 +16,8 @@
 }
 
 .node-class {
-    fill: #cdc;
-    stroke: #152;
+    fill: rgb(6, 173, 245);
+    stroke: rgb(0, 0, 0);
 }
 
 .node-package {
@@ -59,7 +59,7 @@
 
 .sprotty-edge {
     fill: none;
-    stroke: #488;
+    stroke: rgb(0, 0, 0);
     stroke-width: 2px;
 }
 

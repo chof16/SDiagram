@@ -16,7 +16,7 @@ export function getContentFromFile(webview: vscode.Webview, context: vscode.Exte
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sprotty Class Diagram Example</title>
+        <title>Diagrama del archivo json"</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -27,7 +27,7 @@ export function getContentFromFile(webview: vscode.Webview, context: vscode.Exte
         <div class="container">
             <div class="row" id="sprotty-app" data-app="class-diagram">
                 <div class="col-md-10">
-                    <h1>Sprotty Diagram Example</h1>
+                    <h1>Diagrama del archivo: "${file}"</h1>
                 </div>
             </div>
             <div class="row">
@@ -73,7 +73,7 @@ export function getContentFromArray(webview: vscode.Webview, context: vscode.Ext
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sprotty Class Diagram Example</title>
+        <title>Diagrama del Espacio de Trabajo</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -84,7 +84,7 @@ export function getContentFromArray(webview: vscode.Webview, context: vscode.Ext
         <div class="container">
             <div class="row" id="sprotty-app" data-app="class-diagram">
                 <div class="col-md-10">
-                    <h1>Sprotty Diagram Example</h1>
+                    <h1>Diagrama del Espacio de Trabajo</h1>
                 </div>
             </div>
             <div class="row">
@@ -152,7 +152,7 @@ export function getDependenciesFromFile(webview: vscode.Webview, context: vscode
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sprotty Class Diagram Example</title>
+        <title>Diagrama de dependencias de un archivo</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -163,7 +163,7 @@ export function getDependenciesFromFile(webview: vscode.Webview, context: vscode
         <div class="container">
             <div class="row" id="sprotty-app" data-app="class-diagram">
                 <div class="col-md-10">
-                    <h1>Sprotty Diagram Example</h1>
+                    <h1>Diagrama de dependencias del archivo: "${file}"</h1>
                 </div>
             </div>
             <div class="row">
