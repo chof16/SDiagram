@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".sprotty-graph {\n    font-size: 15pt;\n}\n\n.sprotty-node {\n    stroke-width: 0;\n    font-weight: bold;\n}\n\n.sprotty-node.selected {\n    stroke-width: 5;\n}\n\n.sprotty-node.mouseover:not(.selected) {\n    stroke-width: 3;\n}\n\n.node-class {\n    fill: rgb(6, 173, 245);\n    stroke: rgb(0, 0, 0);\n}\n\n.node-package {\n    fill: #d0c8c0;\n    stroke: #541;\n}\n\n.sprotty-comp {\n    line-height: 3px;\n    font-weight: normal;\n    text-align: left;\n}\n\n.sprotty-label {\n    stroke-width: 0;\n    fill: #000;\n    font-weight: inherit;\n    text-align: inherit;\n    font-size: 100%;\n}\n\n.sprotty-label.heading {\n    font-weight: bold;\n}\n\n.sprotty-icon {\n    fill: #153;\n    stroke-width: 0;\n}\n\n.sprotty-label.icon {\n    fill: #fff;\n}\n\n.sprotty-button {\n    fill: #152;\n    stroke-width: 0;\n}\n\n.sprotty-edge {\n    fill: none;\n    stroke: rgb(0, 0, 0);\n    stroke-width: 2px;\n}\n\n.sprotty-edge.selected {\n    stroke: #844;\n    stroke-width: 4px;\n}\n\n.sprotty-edge.mouseover:not(.selected) {\n    stroke-width: 3px;\n}\n\n.sprotty-edge > .sprotty-routing-handle {\n    fill: #884;\n    stroke: none;\n    z-index: 1000;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='line'] {\n    opacity: 0.35;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-add'] {\n    fill: #2B2;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-remove'] {\n    fill: #B00;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-before'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-after'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle.selected {\n    fill: #66a;\n}\n\n.sprotty-edge > .sprotty-routing-handle.mouseover {\n    stroke: #112;\n    stroke-width: 1;\n}\n\n.sprotty-missing {\n    stroke-width: 1;\n    stroke: #f00;\n    fill: #f00;\n    font-size: 14pt;\n    text-anchor: middle;\n}\n\n.sprotty-popup-title {\n    font-weight: bold;\n    margin-bottom: 10px;\n}\n\n.sprotty-popup-body > p {\n    margin-bottom: 2px;\n}", "",{"version":3,"sources":["webpack://./css/diagram.css"],"names":[],"mappings":"AAAA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;IACf,iBAAiB;AACrB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;IACtB,oBAAoB;AACxB;;AAEA;IACI,aAAa;IACb,YAAY;AAChB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;IACnB,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,UAAU;IACV,oBAAoB;IACpB,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,UAAU;IACV,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;IACV,eAAe;AACnB;;AAEA;IACI,UAAU;IACV,oBAAoB;IACpB,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,iBAAiB;AACrB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,UAAU;IACV,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,eAAe;IACf,YAAY;IACZ,UAAU;IACV,eAAe;IACf,mBAAmB;AACvB;;AAEA;IACI,iBAAiB;IACjB,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".sprotty-graph {\n    font-size: 15pt;\n}\n\n.sprotty-node {\n    stroke-width: 0;\n    font-weight: bold;\n}\n\n.sprotty-node.selected {\n    stroke-width: 5;\n}\n\n.sprotty-node.mouseover:not(.selected) {\n    stroke-width: 3;\n}\n\n.node-class {\n    fill: rgb(6, 173, 245);\n    stroke: rgb(0, 0, 0);\n}\n\n.node-package {\n    fill: #d0c8c0;\n    stroke: #541;\n}\n\n.sprotty-comp {\n    line-height: 3px;\n    font-weight: normal;\n    text-align: left;\n}\n\n.sprotty-label {\n    stroke-width: 0;\n    fill: #000;\n    font-weight: inherit;\n    text-align: inherit;\n    font-size: 100%;\n}\n\n.sprotty-label.heading {\n    font-weight: bold;\n}\n\n.sprotty-icon {\n    fill: #153;\n    stroke-width: 0;\n}\n\n.sprotty-label.icon {\n    fill: #fff;\n}\n\n.sprotty-button {\n    fill: #152;\n    stroke-width: 0;\n}\n\n.sprotty-edge {\n    fill: none;\n    stroke: rgb(0, 0, 0);\n    stroke-width: 2px;\n}\n\n.sprotty-edge.selected {\n    stroke: #844;\n    stroke-width: 4px;\n}\n\n.sprotty-edge.mouseover:not(.selected) {\n    stroke-width: 3px;\n}\n\n.sprotty-edge > .sprotty-routing-handle {\n    fill: #884;\n    stroke: none;\n    z-index: 1000;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='line'] {\n    opacity: 0.35;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-add'] {\n    fill: #2B2;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-remove'] {\n    fill: #B00;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-before'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-after'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle.selected {\n    fill: #66a;\n}\n\n.sprotty-edge > .sprotty-routing-handle.mouseover {\n    stroke: #112;\n    stroke-width: 1;\n}\n\n.sprotty-missing {\n    stroke-width: 1;\n    stroke: #f00;\n    fill: #f00;\n    font-size: 14pt;\n    text-anchor: middle;\n}\n\n.sprotty-popup-title {\n    font-weight: bold;\n    margin-bottom: 10px;\n}\n\n.sprotty-popup-body > p {\n    margin-bottom: 2px;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".sprotty-graph {\n    font-size: 15pt;\n}\n\n.sprotty-node {\n    stroke-width: 0;\n    font-weight: bold;\n}\n\n.sprotty-node.selected {\n    stroke-width: 5;\n}\n\n.sprotty-node.mouseover:not(.selected) {\n    stroke-width: 3;\n}\n\n.node-hoja {\n    fill: rgb(6, 173, 245);\n    stroke: rgb(0, 0, 0);\n}\n\n.node-nodo {\n    fill: rgb(251, 238, 0);\n    stroke: rgb(0, 0, 0);\n}\n\n.sprotty-comp {\n    line-height: 3px;\n    font-weight: normal;\n    text-align: left;\n}\n\n.sprotty-label {\n    stroke-width: 0;\n    fill: #000;\n    font-weight: inherit;\n    text-align: inherit;\n    font-size: 100%;\n}\n\n.sprotty-label.heading {\n    font-weight: bold;\n}\n\n.sprotty-icon {\n    fill: #153;\n    stroke-width: 0;\n}\n\n.sprotty-label.icon {\n    fill: #fff;\n}\n\n.sprotty-button {\n    fill: #152;\n    stroke-width: 0;\n}\n\n.sprotty-edge {\n    fill: none;\n    stroke: rgb(0, 0, 0);\n    stroke-width: 2px;\n}\n\n.sprotty-edge.selected {\n    stroke: #844;\n    stroke-width: 4px;\n}\n\n.sprotty-edge.mouseover:not(.selected) {\n    stroke-width: 3px;\n}\n\n.sprotty-edge > .sprotty-routing-handle {\n    fill: #884;\n    stroke: none;\n    z-index: 1000;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='line'] {\n    opacity: 0.35;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-add'] {\n    fill: #2B2;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-remove'] {\n    fill: #B00;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-before'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-after'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle.selected {\n    fill: #66a;\n}\n\n.sprotty-edge > .sprotty-routing-handle.mouseover {\n    stroke: #112;\n    stroke-width: 1;\n}\n\n.sprotty-missing {\n    stroke-width: 1;\n    stroke: #f00;\n    fill: #f00;\n    font-size: 14pt;\n    text-anchor: middle;\n}\n\n.sprotty-popup-title {\n    font-weight: bold;\n    margin-bottom: 10px;\n}\n\n.sprotty-popup-body > p {\n    margin-bottom: 2px;\n}", "",{"version":3,"sources":["webpack://./css/diagram.css"],"names":[],"mappings":"AAAA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;IACf,iBAAiB;AACrB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;IACtB,oBAAoB;AACxB;;AAEA;IACI,sBAAsB;IACtB,oBAAoB;AACxB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;IACnB,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,UAAU;IACV,oBAAoB;IACpB,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,UAAU;IACV,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;IACV,eAAe;AACnB;;AAEA;IACI,UAAU;IACV,oBAAoB;IACpB,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,iBAAiB;AACrB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,UAAU;IACV,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,eAAe;IACf,YAAY;IACZ,UAAU;IACV,eAAe;IACf,mBAAmB;AACvB;;AAEA;IACI,iBAAiB;IACjB,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".sprotty-graph {\n    font-size: 15pt;\n}\n\n.sprotty-node {\n    stroke-width: 0;\n    font-weight: bold;\n}\n\n.sprotty-node.selected {\n    stroke-width: 5;\n}\n\n.sprotty-node.mouseover:not(.selected) {\n    stroke-width: 3;\n}\n\n.node-hoja {\n    fill: rgb(6, 173, 245);\n    stroke: rgb(0, 0, 0);\n}\n\n.node-nodo {\n    fill: rgb(251, 238, 0);\n    stroke: rgb(0, 0, 0);\n}\n\n.sprotty-comp {\n    line-height: 3px;\n    font-weight: normal;\n    text-align: left;\n}\n\n.sprotty-label {\n    stroke-width: 0;\n    fill: #000;\n    font-weight: inherit;\n    text-align: inherit;\n    font-size: 100%;\n}\n\n.sprotty-label.heading {\n    font-weight: bold;\n}\n\n.sprotty-icon {\n    fill: #153;\n    stroke-width: 0;\n}\n\n.sprotty-label.icon {\n    fill: #fff;\n}\n\n.sprotty-button {\n    fill: #152;\n    stroke-width: 0;\n}\n\n.sprotty-edge {\n    fill: none;\n    stroke: rgb(0, 0, 0);\n    stroke-width: 2px;\n}\n\n.sprotty-edge.selected {\n    stroke: #844;\n    stroke-width: 4px;\n}\n\n.sprotty-edge.mouseover:not(.selected) {\n    stroke-width: 3px;\n}\n\n.sprotty-edge > .sprotty-routing-handle {\n    fill: #884;\n    stroke: none;\n    z-index: 1000;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='line'] {\n    opacity: 0.35;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-add'] {\n    fill: #2B2;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-remove'] {\n    fill: #B00;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-before'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-after'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle.selected {\n    fill: #66a;\n}\n\n.sprotty-edge > .sprotty-routing-handle.mouseover {\n    stroke: #112;\n    stroke-width: 1;\n}\n\n.sprotty-missing {\n    stroke-width: 1;\n    stroke: #f00;\n    fill: #f00;\n    font-size: 14pt;\n    text-anchor: middle;\n}\n\n.sprotty-popup-title {\n    font-weight: bold;\n    margin-bottom: 10px;\n}\n\n.sprotty-popup-body > p {\n    margin-bottom: 2px;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -34150,8 +34150,10 @@ exports["default"] = (containerId) => {
         bind(sprotty_1.TYPES.MouseListener).toService(bezier_edge_router_1.BezierMouseListener);
         const context = { bind, unbind, isBound, rebind };
         (0, sprotty_1.configureModelElement)(context, 'graph', sprotty_1.SGraph, sprotty_1.SGraphView);
-        (0, sprotty_1.configureModelElement)(context, 'node:package', sprotty_1.RectangularNode, views_1.NodeView);
-        (0, sprotty_1.configureModelElement)(context, 'node:class', model_1.ClassNode, views_1.NodeView, {
+        (0, sprotty_1.configureModelElement)(context, 'node:hoja', model_1.ClassNode, views_1.NodeView, {
+            enable: [sprotty_1.expandFeature, sprotty_1.nameFeature, sprotty_1.withEditLabelFeature]
+        });
+        (0, sprotty_1.configureModelElement)(context, 'node:nodo', model_1.ClassNode, views_1.NodeView, {
             enable: [sprotty_1.expandFeature, sprotty_1.nameFeature, sprotty_1.withEditLabelFeature]
         });
         (0, sprotty_1.configureModelElement)(context, 'label:heading', model_1.ClassLabel, sprotty_1.SLabelView, {
@@ -34235,12 +34237,12 @@ let ClassDiagramModelSource = class ClassDiagramModelSource extends sprotty_1.Lo
         graph = localGraph;
         return localGraph;
     }
-    modifyGraph(ids, labels, srcId, tgtId) {
+    modifyGraph(ids, labels, srcId, tgtId, source) {
         let i = 0;
         ids.forEach(element => {
             let node = {
                 id: element,
-                type: "node:class",
+                type: deducirTipo(element, source),
                 layout: 'vbox',
                 children: [
                     {
@@ -34278,6 +34280,11 @@ ClassDiagramModelSource = __decorate([
     __metadata("design:paramtypes", [])
 ], ClassDiagramModelSource);
 exports.ClassDiagramModelSource = ClassDiagramModelSource;
+function deducirTipo(element, source) {
+    if (source.includes(element))
+        return "node:nodo";
+    return "node:hoja";
+}
 
 
 /***/ }),
@@ -34349,7 +34356,7 @@ const inversify_1 = __webpack_require__(/*! inversify */ "./node_modules/inversi
 const sprotty_1 = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
 let PopupModelProvider = class PopupModelProvider {
     getPopupModel(request, element) {
-        if (element !== undefined && element.type === 'node:class') {
+        if ((element !== undefined && element.type === 'node:hoja') || (element !== undefined && element.type === 'node:nodo')) {
             const node = this.modelFactory.createElement(element);
             return {
                 type: 'html',
@@ -34396,18 +34403,28 @@ exports.runClassDiagram = void 0;
 const di_config_1 = __webpack_require__(/*! ./di.config */ "./src/di.config.ts");
 const sprotty_1 = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
 function runClassDiagram() {
+    let sources = [];
+    let i = 0;
     const container = (0, di_config_1.default)('sprotty');
     let ids = document.currentScript.getAttribute("ids").split(",");
     let labels = document.currentScript.getAttribute("labels").split(",");
+    //srcId contiene los directorios en la generacion del wprkspace 
+    //y los archivos donde se encuentran las clases o funciones de dependencia
     let srcId = document.currentScript.getAttribute("srcIds").split(",");
     let tgtId = document.currentScript.getAttribute("tgtIds").split(",");
+    for (let entry of srcId) {
+        if (!sources.includes(entry)) {
+            sources[i] = entry;
+            i++;
+        }
+    }
     console.log(ids);
     console.log(labels);
     console.log(srcId);
     console.log(tgtId);
     const modelSource = container.get(sprotty_1.TYPES.ModelSource);
     modelSource.updateModel();
-    modelSource.modifyGraph(ids, labels, srcId, tgtId);
+    modelSource.modifyGraph(ids, labels, srcId, tgtId, sources);
     modelSource.updateModel();
 }
 exports.runClassDiagram = runClassDiagram;
@@ -34441,7 +34458,7 @@ let NodeView = class NodeView extends sprotty_1.RectangularNodeView {
             return undefined;
         }
         return (0, jsx_1.svg)("g", null,
-            (0, jsx_1.svg)("rect", { "class-sprotty-node": true, "class-node-package": node.type === 'node:package', "class-node-class": node.type === 'node:class', "class-mouseover": node.hoverFeedback, "class-selected": node.selected, x: "0", y: "0", width: Math.max(node.size.width, 0), height: Math.max(node.size.height, 0) }),
+            (0, jsx_1.svg)("rect", { "class-sprotty-node": true, "class-node-nodo": node.type === 'node:nodo', "class-node-hoja": node.type === 'node:hoja', "class-mouseover": node.hoverFeedback, "class-selected": node.selected, x: "0", y: "0", width: Math.max(node.size.width, 0), height: Math.max(node.size.height, 0) }),
             context.renderChildren(node));
     }
 };

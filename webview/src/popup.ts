@@ -11,7 +11,7 @@ export class PopupModelProvider implements IPopupModelProvider {
     @inject(TYPES.IModelFactory) modelFactory: IModelFactory;
 
     getPopupModel(request: RequestPopupModelAction, element?: SModelElement): SModelRoot | undefined {
-        if (element !== undefined && element.type === 'node:class') {
+        if ((element !== undefined && element.type === 'node:hoja')|| (element !== undefined && element.type === 'node:nodo')) {
             const node = this.modelFactory.createElement(element) as ClassNode;
             return {
                 type: 'html',

@@ -5,7 +5,7 @@ import {
     SRoutingHandleView, PreRenderedElement, HtmlRoot, SGraph, configureModelElement,
     SCompartment, SEdge, SButton, SRoutingHandle, RevealNamedElementActionProvider,
     CenterGridSnapper, expandFeature, nameFeature, withEditLabelFeature, editLabelFeature,
-    RectangularNode, BezierCurveEdgeView, SBezierCreateHandleView, SBezierControlHandleView, loadDefaultModules
+    BezierCurveEdgeView, SBezierCreateHandleView, SBezierControlHandleView, loadDefaultModules
 } from 'sprotty';
 import edgeIntersectionModule from "sprotty/lib/features/edge-intersection/di.config";
 import { NodeView} from "./views";
@@ -41,8 +41,10 @@ export default (containerId: string) => {
 
         const context = { bind, unbind, isBound, rebind };
         configureModelElement(context, 'graph', SGraph, SGraphView);
-        configureModelElement(context, 'node:package', RectangularNode, NodeView);
-        configureModelElement(context, 'node:class', ClassNode, NodeView, {
+        configureModelElement(context, 'node:hoja', ClassNode, NodeView,{
+            enable: [expandFeature, nameFeature, withEditLabelFeature]
+        });
+        configureModelElement(context, 'node:nodo', ClassNode, NodeView, {
             enable: [expandFeature, nameFeature, withEditLabelFeature]
         });
         configureModelElement(context, 'label:heading', ClassLabel, SLabelView, {

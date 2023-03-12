@@ -40,12 +40,12 @@ export class ClassDiagramModelSource extends LocalModelSource {
         return localGraph;
     }
 
-    modifyGraph(ids: any[],labels: any[],srcId: any[],tgtId: any[]) {
+    modifyGraph(ids: any[],labels: any[],srcId: any[],tgtId: any[],source:any[]) {
         let i=0;
         ids.forEach(element => {
             let node:SNode ={
                 id: element,
-                type: "node:class",
+                type: deducirTipo(element,source),
                 layout: 'vbox',
                 children: [
                     <SCompartment>{
@@ -80,3 +80,9 @@ export class ClassDiagramModelSource extends LocalModelSource {
     }
 }
 
+function deducirTipo(element: any, source: any[]): string {
+    if(source.includes(element))
+        return "node:nodo"
+
+    return "node:hoja"
+}   

@@ -19,6 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand('diagram.open', () => {
       const options: vscode.OpenDialogOptions = {
+        title: "Selecciona un archivo json",
         canSelectMany: false,
         openLabel: 'Select',
         canSelectFiles: true,
@@ -27,6 +28,10 @@ export function activate(context: vscode.ExtensionContext) {
       vscode.window.showOpenDialog(options).then(fileUri => {
         if (fileUri && fileUri[0]) {
           file = fileUri[0].fsPath;
+          if(!file.includes(".json")){
+            vscode.window.showErrorMessage('File must be .json');
+            return
+          }
           console.log("File:" + file);
           const panel = vscode.window.createWebviewPanel(
             'Diagrama',
@@ -108,6 +113,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(vscode.commands.registerCommand('diagram.dependencies',()=>{
     const options: vscode.OpenDialogOptions = {
+      title: "Selecciona un archivo .ts o .js",
       canSelectMany: false,
       openLabel: 'Select',
       canSelectFiles: true,

@@ -13,8 +13,8 @@ export class NodeView extends RectangularNodeView {
         }
         return <g>
             <rect class-sprotty-node={true}
-                  class-node-package={node.type === 'node:package'}
-                  class-node-class={node.type === 'node:class'}
+                  class-node-nodo={node.type === 'node:nodo'}
+                  class-node-hoja={node.type === 'node:hoja'}
                   class-mouseover={node.hoverFeedback} class-selected={node.selected}
                   x="0" y="0" width={Math.max(node.size.width, 0)} height={Math.max(node.size.height, 0)}></rect>
             {context.renderChildren(node)}
