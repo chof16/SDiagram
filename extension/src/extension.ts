@@ -5,6 +5,7 @@ import * as path from 'path'
 import { readdirSync, lstatSync } from 'fs';
 import { getContentFromArray, getContentFromFile, 
   getDependenciesFromFile } from './utils/generateHtmlContent';
+import { resolve } from 'path';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -107,6 +108,14 @@ export function activate(context: vscode.ExtensionContext) {
       console.log(estructura)
       // And set its HTML content
       panel.webview.html = getContentFromArray(panel.webview, context, estructura);
+      panel.webview.onDidReceiveMessage(
+        message => {
+          switch(message.command){
+            case 'abrirArchivo':
+              abrirArchivo(message.text)
+          }
+        }
+      )
     }
     )
   )
@@ -189,3 +198,8 @@ function leerDirectorios(estructura: any, directorios: any[]) {
   })
   return estructura
 }
+function abrirArchivo(archivo: any) {
+  let path=resolve(vscode.workspace.workspaceFolders[0].name,archivo)
+  console.log(path)
+}
+

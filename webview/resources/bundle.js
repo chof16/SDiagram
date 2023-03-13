@@ -34211,14 +34211,31 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ClassDiagramModelSource = void 0;
 const inversify_1 = __webpack_require__(/*! inversify */ "./node_modules/inversify/lib/inversify.js");
 const sprotty_1 = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
-let graph;
+const sprotty_protocol_1 = __webpack_require__(/*! sprotty-protocol */ "./node_modules/sprotty-protocol/lib/index.js");
+const standalone_1 = __webpack_require__(/*! ./standalone */ "./src/standalone.ts");
 let ClassDiagramModelSource = class ClassDiagramModelSource extends sprotty_1.LocalModelSource {
     constructor() {
         super();
         this.currentRoot = this.initializeModel();
+        this.graph;
     }
     initialize(registry) {
         super.initialize(registry);
+        registry.register(sprotty_protocol_1.SelectAction.KIND, this);
+    }
+    handle(action) {
+        switch (action.kind) {
+            case sprotty_protocol_1.SelectAction.KIND:
+                this.handleSelection(action);
+                break;
+        }
+    }
+    handleSelection(action) {
+        let id = action.selectedElementsIDs;
+        let nodo = this.graph.children.filter(h => h.id == id[0]);
+        let comp = nodo[0].children[0];
+        let label = comp.children[0];
+        (0, standalone_1.enviarMensaje)(label.text);
     }
     initializeModel() {
         const localGraph = {
@@ -34234,7 +34251,7 @@ let ClassDiagramModelSource = class ClassDiagramModelSource extends sprotty_1.Lo
                 paddingBottom: 7
             }
         };
-        graph = localGraph;
+        this.graph = localGraph;
         return localGraph;
     }
     modifyGraph(ids, labels, srcId, tgtId, source) {
@@ -34259,7 +34276,7 @@ let ClassDiagramModelSource = class ClassDiagramModelSource extends sprotty_1.Lo
                     },
                 ]
             };
-            graph.children.push(node);
+            this.graph.children.push(node);
             i++;
         });
         i = 0;
@@ -34270,7 +34287,7 @@ let ClassDiagramModelSource = class ClassDiagramModelSource extends sprotty_1.Lo
                 sourceId: element,
                 targetId: tgtId[i]
             };
-            graph.children.push(edge);
+            this.graph.children.push(edge);
             i++;
         });
     }
@@ -34399,9 +34416,10 @@ exports.PopupModelProvider = PopupModelProvider;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.runClassDiagram = void 0;
+exports.enviarMensaje = exports.runClassDiagram = void 0;
 const di_config_1 = __webpack_require__(/*! ./di.config */ "./src/di.config.ts");
 const sprotty_1 = __webpack_require__(/*! sprotty */ "./node_modules/sprotty/lib/index.js");
+const vscode = acquireVsCodeApi();
 function runClassDiagram() {
     let sources = [];
     let i = 0;
@@ -34428,6 +34446,14 @@ function runClassDiagram() {
     modelSource.updateModel();
 }
 exports.runClassDiagram = runClassDiagram;
+function enviarMensaje(texto) {
+    console.log(texto);
+    vscode.postMessage({
+        command: "abrirArchivo",
+        text: texto
+    });
+}
+exports.enviarMensaje = enviarMensaje;
 
 
 /***/ }),

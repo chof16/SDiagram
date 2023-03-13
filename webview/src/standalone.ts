@@ -2,9 +2,10 @@ import createContainer from "./di.config";
 import { TYPES } from 'sprotty';
 import { ClassDiagramModelSource } from "./model-source";
 
-
+const vscode=acquireVsCodeApi();
 
 export function runClassDiagram(): void {
+
 
     let sources:string[]=[]
     let i=0
@@ -35,4 +36,10 @@ export function runClassDiagram(): void {
     modelSource.updateModel();
 }
 
-
+export function enviarMensaje(texto:string){
+    console.log(texto)
+    vscode.postMessage({
+        command : "abrirArchivo",
+        text:texto
+    })
+}

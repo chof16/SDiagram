@@ -1,25 +1,41 @@
 import { injectable } from 'inversify';
 import { ActionHandlerRegistry, LocalModelSource} from 'sprotty';
 import {
-    SGraph, SLabel, SNode,SEdge,SCompartment
+    SGraph, SLabel, SNode,SEdge,SCompartment, Action,SelectAction
 } from 'sprotty-protocol';
-
-let graph:SGraph;
+import { enviarMensaje } from './standalone';
 
 @injectable()
 export class ClassDiagramModelSource extends LocalModelSource {
 
-
-
     expansionState: { [key: string]: boolean };
+    graph: SGraph;
 
     constructor() {
         super();
         this.currentRoot = this.initializeModel();
+        this.graph
     }
 
     override initialize(registry: ActionHandlerRegistry): void {
         super.initialize(registry);
+        registry.register(SelectAction.KIND,this)
+    }
+
+    override handle(action: Action): void {
+        switch (action.kind){
+            case SelectAction.KIND:
+            this.handleSelection(action as SelectAction)
+            break;
+        }
+    }
+
+    protected handleSelection(action:SelectAction){
+        let id =action.selectedElementsIDs;
+        let nodo=this.graph.children.filter(h => h.id == id[0])
+        let comp=nodo[0].children[0]
+        let label=comp.children[0]
+        enviarMensaje(label.text);
     }
 
     initializeModel(): SGraph {
@@ -36,7 +52,7 @@ export class ClassDiagramModelSource extends LocalModelSource {
                 paddingBottom: 7
             }
         };
-        graph=localGraph
+        this.graph=localGraph
         return localGraph;
     }
 
@@ -62,7 +78,7 @@ export class ClassDiagramModelSource extends LocalModelSource {
                     },
                 ]
             };
-            graph.children.push(node);
+            this.graph.children.push(node);
             i++;
         });
         i=0;
@@ -73,7 +89,7 @@ export class ClassDiagramModelSource extends LocalModelSource {
                 sourceId :element,
                 targetId:tgtId[i]
             }
-            graph.children.push(edge);
+            this.graph.children.push(edge);
             i++;
         })
 
