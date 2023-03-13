@@ -34218,6 +34218,7 @@ let ClassDiagramModelSource = class ClassDiagramModelSource extends sprotty_1.Lo
         super();
         this.currentRoot = this.initializeModel();
         this.graph;
+        this.opcion;
     }
     initialize(registry) {
         super.initialize(registry);
@@ -34231,11 +34232,40 @@ let ClassDiagramModelSource = class ClassDiagramModelSource extends sprotty_1.Lo
         }
     }
     handleSelection(action) {
-        let id = action.selectedElementsIDs;
-        let nodo = this.graph.children.filter(h => h.id == id[0]);
-        let comp = nodo[0].children[0];
-        let label = comp.children[0];
-        (0, standalone_1.enviarMensaje)(label.text);
+        let id = action.selectedElementsIDs[0];
+        let nodo = this.graph.children.filter(h => h.id == id);
+        if (this.opcion == "2") {
+            let padre = this.graph.children.filter(h => h.type == "edge:straight" && h.targetId == id);
+            let ruta = this.getRuta(padre[0]);
+            let comp = nodo[0].children[0];
+            let label = comp.children[0];
+            (0, standalone_1.enviarMensaje)(ruta + "/" + label.text);
+        }
+        else if (this.opcion == "3") {
+            let comp = nodo[0].children[0];
+            let label = comp.children[0];
+            (0, standalone_1.enviarMensaje)(label.text);
+        }
+    }
+    getRuta(actual) {
+        if (actual.sourceId == "0") {
+            let nodo = this.graph.children.filter(h => h.id == "0");
+            let comp = nodo[0].children[0];
+            let label = comp.children[0];
+            console.log(label.text);
+            return label.text;
+        }
+        else {
+            console.log(actual["sourceId"]);
+            let ruta = '';
+            let nodo = this.graph.children.filter(h => h.id == actual["sourceId"]);
+            let padre = this.graph.children.filter(h => h.type == "edge:straight" && h.targetId == actual["sourceId"]);
+            ruta = this.getRuta(padre[0]);
+            let comp = nodo[0].children[0];
+            let label = comp.children[0];
+            console.log(ruta + "/" + label.text);
+            return ruta + "/" + label.text;
+        }
     }
     initializeModel() {
         const localGraph = {
@@ -34254,7 +34284,8 @@ let ClassDiagramModelSource = class ClassDiagramModelSource extends sprotty_1.Lo
         this.graph = localGraph;
         return localGraph;
     }
-    modifyGraph(ids, labels, srcId, tgtId, source) {
+    modifyGraph(ids, labels, srcId, tgtId, source, opcion) {
+        this.opcion = opcion;
         let i = 0;
         ids.forEach(element => {
             let node = {
@@ -34426,10 +34457,11 @@ function runClassDiagram() {
     const container = (0, di_config_1.default)('sprotty');
     let ids = document.currentScript.getAttribute("ids").split(",");
     let labels = document.currentScript.getAttribute("labels").split(",");
-    //srcId contiene los directorios en la generacion del wprkspace 
+    //srcId contiene los directorios en la generacion del workspace 
     //y los archivos donde se encuentran las clases o funciones de dependencia
     let srcId = document.currentScript.getAttribute("srcIds").split(",");
     let tgtId = document.currentScript.getAttribute("tgtIds").split(",");
+    let opcion = document.currentScript.getAttribute("opcion");
     for (let entry of srcId) {
         if (!sources.includes(entry)) {
             sources[i] = entry;
@@ -34442,7 +34474,7 @@ function runClassDiagram() {
     console.log(tgtId);
     const modelSource = container.get(sprotty_1.TYPES.ModelSource);
     modelSource.updateModel();
-    modelSource.modifyGraph(ids, labels, srcId, tgtId, sources);
+    modelSource.modifyGraph(ids, labels, srcId, tgtId, sources, opcion);
     modelSource.updateModel();
 }
 exports.runClassDiagram = runClassDiagram;

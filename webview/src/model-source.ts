@@ -10,11 +10,13 @@ export class ClassDiagramModelSource extends LocalModelSource {
 
     expansionState: { [key: string]: boolean };
     graph: SGraph;
+    opcion: any;
 
     constructor() {
         super();
         this.currentRoot = this.initializeModel();
         this.graph
+        this.opcion
     }
 
     override initialize(registry: ActionHandlerRegistry): void {
@@ -31,11 +33,44 @@ export class ClassDiagramModelSource extends LocalModelSource {
     }
 
     protected handleSelection(action:SelectAction){
-        let id =action.selectedElementsIDs;
-        let nodo=this.graph.children.filter(h => h.id == id[0])
-        let comp=nodo[0].children[0]
-        let label=comp.children[0]
-        enviarMensaje(label.text);
+        let id =action.selectedElementsIDs[0];
+        let nodo=this.graph.children.filter(h => h.id == id)
+
+        if(this.opcion=="2"){
+            let padre=this.graph.children.filter(h => h.type=="edge:straight" && h.targetId==id)
+            let ruta=this.getRuta(padre[0])
+            let comp=nodo[0].children[0]
+            let label=comp.children[0]
+            enviarMensaje(ruta+"/"+label.text);
+        }
+        else if(this.opcion=="3"){
+            let comp=nodo[0].children[0]
+            let label=comp.children[0]
+            enviarMensaje(label.text);
+        }
+    }
+
+    protected getRuta(actual:any){
+        if(actual.sourceId=="0"){
+            let nodo=this.graph.children.filter(h => h.id == "0")
+            let comp=nodo[0].children[0]
+            let label=comp.children[0]
+            console.log(label.text)
+            return label.text
+        }
+
+        else{
+            console.log(actual["sourceId"])
+            let ruta=''
+            let nodo=this.graph.children.filter(h => h.id == actual["sourceId"])
+            let padre=this.graph.children.filter(h => h.type=="edge:straight" && h.targetId==actual["sourceId"])
+            ruta=this.getRuta(padre[0])
+            let comp=nodo[0].children[0]
+            let label=comp.children[0]
+            console.log(ruta+"/"+label.text)
+            return ruta+"/"+label.text
+        }
+            
     }
 
     initializeModel(): SGraph {
@@ -56,7 +91,8 @@ export class ClassDiagramModelSource extends LocalModelSource {
         return localGraph;
     }
 
-    modifyGraph(ids: any[],labels: any[],srcId: any[],tgtId: any[],source:any[]) {
+    modifyGraph(ids: any[],labels: any[],srcId: any[],tgtId: any[],source:any[],opcion: string) {
+        this.opcion=opcion
         let i=0;
         ids.forEach(element => {
             let node:SNode ={
@@ -101,4 +137,6 @@ function deducirTipo(element: any, source: any[]): string {
         return "node:nodo"
 
     return "node:hoja"
-}   
+}  
+
+

@@ -2,7 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import * as path from 'path'
-import { readdirSync, lstatSync } from 'fs';
+import { readdirSync, lstatSync, existsSync } from 'fs';
 import { getContentFromArray, getContentFromFile, 
   getDependenciesFromFile } from './utils/generateHtmlContent';
 import { resolve } from 'path';
@@ -148,6 +148,14 @@ export function activate(context: vscode.ExtensionContext) {
         );
         // And set its HTML content
         panel.webview.html = getDependenciesFromFile(panel.webview, context,file);
+        panel.webview.onDidReceiveMessage(
+          message => {
+            switch(message.command){
+              case 'abrirArchivo':
+                abrirArchivo(message.text)
+            }
+          }
+        )
       }
     });;
   }))
@@ -199,7 +207,20 @@ function leerDirectorios(estructura: any, directorios: any[]) {
   return estructura
 }
 function abrirArchivo(archivo: any) {
-  let path=resolve(vscode.workspace.workspaceFolders[0].name,archivo)
-  console.log(path)
+
+  let ruta=resolve(vscode.workspace.workspaceFolders[0].name,archivo)
+  if(!ruta.includes(".ts") && !ruta.includes(".js")){
+    let rutaType=ruta+".ts"
+    let rutaJavaScript=ruta+".js"
+    if(existsSync(rutaJavaScript))
+     vscode.window.showTextDocument(vscode.Uri.parse(rutaJavaScript),{preview:false})
+    
+    else
+    vscode.window.showTextDocument(vscode.Uri.parse(rutaType),{preview:false})
+  }
+
+  else
+  vscode.window.showTextDocument(vscode.Uri.parse(ruta),{preview:false})
+
 }
 

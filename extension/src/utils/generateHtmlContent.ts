@@ -39,7 +39,7 @@ export function getContentFromFile(webview: vscode.Webview, context: vscode.Exte
                 </div>
             </div>
         </div>
-        <script src="${bundleUri}" ids="${ids}", labels="${labels}", srcIds="${srcId}", tgtIds="${tgtId}"></script>
+        <script src="${bundleUri}" ids="${ids}", labels="${labels}", srcIds="${srcId}", tgtIds="${tgtId}", opcion=1></script>
     </body>
     
     </html>`
@@ -96,7 +96,7 @@ export function getContentFromArray(webview: vscode.Webview, context: vscode.Ext
                 </div>
             </div>
         </div>
-        <script src="${bundleUri}" ids="${ids}", labels="${labels}", srcIds="${srcId}", tgtIds="${tgtId}"></script>
+        <script src="${bundleUri}" ids="${ids}", labels="${labels}", srcIds="${srcId}", tgtIds="${tgtId}", opcion=2></script>
     </body>
     
     </html>`
@@ -175,7 +175,7 @@ export function getDependenciesFromFile(webview: vscode.Webview, context: vscode
                 </div>
             </div>
         </div>
-        <script src="${bundleUri}" ids="${ids}", labels="${labels}", srcIds="${srcId}", tgtIds="${tgtId}"></script>
+        <script src="${bundleUri}" ids="${ids}", labels="${labels}", srcIds="${srcId}", tgtIds="${tgtId}", opcion=3></script>
     </body>
     
     </html>`
