@@ -26,8 +26,8 @@ export function getArrays(datos: string) {
   return { ids, labels, srcId, tgtId }
 }
 
-function getsIds(elementosNodos: any[]) {
-  let ids: any[] = []
+function getsIds(elementosNodos: string[]) {
+  let ids: string[] = []
   let i = 0;
   elementosNodos.forEach(element => {
     ids[i] = element.match(/\d+/)[0];
@@ -51,9 +51,9 @@ function getsLabels(elementosNodos: any[]) {
   return labels;
 }
 
-function getsRelaciones(elementosFlechas: any[]) {
-  var srcId: any[] = []
-  var tgtId: any[] = []
+function getsRelaciones(elementosFlechas: string[]) {
+  var srcId: string[] = []
+  var tgtId: string[] = []
   var i = 0;
   elementosFlechas.forEach(element => {
     srcId[i] = element.match(/\d+/)[0];

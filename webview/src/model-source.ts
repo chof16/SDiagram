@@ -1,5 +1,5 @@
 import { injectable } from 'inversify';
-import { ActionHandlerRegistry, LocalModelSource} from 'sprotty';
+import { ActionHandlerRegistry, LocalModelSource, SModelElement} from 'sprotty';
 import {
     SGraph, SLabel, SNode,SEdge,SCompartment, Action,SelectAction
 } from 'sprotty-protocol';
@@ -10,7 +10,7 @@ export class ClassDiagramModelSource extends LocalModelSource {
 
     expansionState: { [key: string]: boolean };
     graph: SGraph;
-    opcion: any;
+    opcion: string;
 
     constructor() {
         super();
@@ -50,7 +50,7 @@ export class ClassDiagramModelSource extends LocalModelSource {
         }
     }
 
-    protected getRuta(actual:any){
+    protected getRuta(actual:SModelElement){
         if(actual.sourceId=="0"){
             let nodo=this.graph.children.filter(h => h.id == "0")
             let comp=nodo[0].children[0]

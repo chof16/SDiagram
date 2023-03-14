@@ -49,10 +49,10 @@ export function getContentFromArray(webview: vscode.Webview, context: vscode.Ext
 
     let { pageUri, bundleUri } = getUris(context, webview)
 
-    let ids: any[] = []
-    let labels: any[] = []
-    let srcId: any[] = []
-    let tgtId: any[] = []
+    let ids: string[] = []
+    let labels: string[] = []
+    let srcId: string[] = []
+    let tgtId: string[] = []
     let i = 0;
 
     for (let value of estructura.nodes) {
@@ -109,10 +109,10 @@ export function getDependenciesFromFile(webview: vscode.Webview, context: vscode
     let datos = readFileSync(file, { encoding: "utf-8", flag: "r" })
     let { elements, files } = getDependencies(datos, file);
 
-    let ids: any[] = []
+    let ids: number[] = []
     let labels: any[] = []
-    let srcId: any[] = []
-    let tgtId: any[] = []
+    let srcId: number[] = []
+    let tgtId: number[] = []
     let idActual = 1;
     let idSource = 1;
     let j = 0
@@ -209,15 +209,25 @@ function getDependencies(datos: string, file: string): { elements: any, files: a
 
                 if (elements[j].includes("import"))
                     elements[j] = elements[j].replace("import", "")
-                    j++
+                j++
             }
 
             var filePath
-            if (sep[1].match("'")) {
-                filePath = sep[1].slice(sep[1].indexOf("'") + 1, sep[1].lastIndexOf("'"))
+            if (sep.length == 1) {
+                if (sep[0].match("'")) {
+                    filePath = sep[0].slice(sep[0].indexOf("'") + 1, sep[0].lastIndexOf("'"))
+                }
+                else {
+                    filePath = sep[0].slice(sep[0].indexOf("\"") + 1, sep[0].lastIndexOf("\""))
+                }
             }
             else {
-                filePath = sep[1].slice(sep[1].indexOf("\"") + 1, sep[1].lastIndexOf("\""))
+                if (sep[1].match("'")) {
+                    filePath = sep[1].slice(sep[1].indexOf("'") + 1, sep[1].lastIndexOf("'"))
+                }
+                else {
+                    filePath = sep[1].slice(sep[1].indexOf("\"") + 1, sep[1].lastIndexOf("\""))
+                }
             }
             files[i] = resolve(directorio, filePath)
             i++
