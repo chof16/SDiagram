@@ -209,7 +209,7 @@ function leerDirectorios(estructura: any, directorios: any[]) {
 function abrirArchivo(archivo: any) {
 
   let ruta=resolve(vscode.workspace.workspaceFolders[0].name,archivo)
-  if(!ruta.includes(".ts") && !ruta.includes(".js")){
+  if(!ruta.includes(".ts") && !ruta.includes(".js") && !ruta.match(/\.+/)){
     let rutaType=ruta+".ts"
     let rutaJavaScript=ruta+".js"
     if(existsSync(rutaJavaScript))
