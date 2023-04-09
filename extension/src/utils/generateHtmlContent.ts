@@ -8,6 +8,7 @@ export function getContentFromFile(webview: vscode.Webview, context: vscode.Exte
     let { pageUri, bundleUri } = getUris(context, webview)
 
     let datos = readFileSync(file, { encoding: "utf-8", flag: "r" })
+
     let { ids, labels, srcId, tgtId } = examples.getArrays(datos);
 
     return `<!DOCTYPE html>
@@ -60,10 +61,11 @@ export function getContentFromArray(webview: vscode.Webview, context: vscode.Ext
         labels[i] = value["label"]
         i++
     }
+
     i = 0;
     for (let value of estructura.edges) {
         srcId[i] = value["srcId"]
-        tgtId[i] = value["tgtid"]
+        tgtId[i] = value["tgtId"]
         i++
     }
 
@@ -118,6 +120,7 @@ export function getDependenciesFromFile(webview: vscode.Webview, context: vscode
     let j = 0
     ids[0] = 0;
     labels[0] = file
+
     for (let entry of files) {
         ids[idActual] = idActual;
         labels[idActual] = entry
@@ -126,8 +129,10 @@ export function getDependenciesFromFile(webview: vscode.Webview, context: vscode
         j++
         idActual++
     }
+
     for (let entry of elements) {
         let el = entry.split(",")
+        
         for (let e of el) {
             console.log(e)
             ids[idActual] = idActual
@@ -137,15 +142,11 @@ export function getDependenciesFromFile(webview: vscode.Webview, context: vscode
             idActual++
             j++
         }
+
         idSource++
     }
 
-    console.log(ids)
-    console.log(labels)
-    console.log(srcId)
-    console.log(tgtId)
-
-
+ 
     return `<!DOCTYPE html>
     <html>
     
@@ -182,6 +183,7 @@ export function getDependenciesFromFile(webview: vscode.Webview, context: vscode
 }
 
 function getUris(context: vscode.ExtensionContext, webview: vscode.Webview) {
+
     const page = vscode.Uri.joinPath(context.extensionUri, "..", "webview", "css", "page.css");
     const bundle = vscode.Uri.joinPath(context.extensionUri, "..", "webview", "resources", "bundle.js");
 
@@ -192,43 +194,58 @@ function getUris(context: vscode.ExtensionContext, webview: vscode.Webview) {
 }
 
 function getDependencies(datos: string, file: string): { elements: any, files: any } {
+
+
     let directorio = file.slice(0, file.lastIndexOf("/"))
+    //Regex para conseguir los imports de cada 
     var imports = datos.matchAll(/import\s+?(?:(?:(?:[\w*\s{},]*)\s+from\s+?)|)(?:(?:".*?")|(?:'.*?'))[\s]*?(?:;|$|)/g)
     var elements = []
     var files = []
     var i = 0
     var j = 0
+
     for (let entry of imports) {
+        //Si son de ruta relativa
         if (entry[0].match(/[\.|\.+]\//)) {
+            //Comprobar si tienen llaves
             var inicio = entry[0].indexOf("{")
             var salida = entry[0].indexOf("}")
+            //Comprobar si tienen la palabra from
             var sep = entry[0].split("from")
             var elemento = sep[0].slice(inicio + 1, salida).trim()
+
             if (!elemento.includes("*")) {
                 elements[j] = elemento
 
+                //Quitar la plabara import si se encuentra en la etiqueta
                 if (elements[j].includes("import"))
                     elements[j] = elements[j].replace("import", "")
                 j++
             }
 
             var filePath
+            
             if (sep.length == 1) {
+
                 if (sep[0].match("'")) {
                     filePath = sep[0].slice(sep[0].indexOf("'") + 1, sep[0].lastIndexOf("'"))
                 }
                 else {
                     filePath = sep[0].slice(sep[0].indexOf("\"") + 1, sep[0].lastIndexOf("\""))
                 }
+
             }
             else {
+
                 if (sep[1].match("'")) {
                     filePath = sep[1].slice(sep[1].indexOf("'") + 1, sep[1].lastIndexOf("'"))
                 }
                 else {
                     filePath = sep[1].slice(sep[1].indexOf("\"") + 1, sep[1].lastIndexOf("\""))
                 }
+
             }
+
             files[i] = resolve(directorio, filePath)
             i++
         }

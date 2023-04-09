@@ -3,9 +3,10 @@ const EDGES = /"edges"/;
 
 const elementos = /},/
 
-let nodos, flechas;
-
 export function getArrays(datos: string) {
+
+  let nodos, flechas;
+
   let comienzoFlecha = datos.match(EDGES);
   let comienzoNodo = datos.match(NODES);
 
@@ -17,6 +18,7 @@ export function getArrays(datos: string) {
     flechas = datos.slice(comienzoFlecha.index, comienzoNodo.index - 1)
     nodos = datos.slice(comienzoNodo.index)
   }
+
   var elementosNodos = nodos.split(elementos);
   var elementosFlechas = flechas.split(elementos);
   var ids = getsIds(elementosNodos)
@@ -27,6 +29,7 @@ export function getArrays(datos: string) {
 }
 
 function getsIds(elementosNodos: string[]) {
+
   let ids: string[] = []
   let i = 0;
   elementosNodos.forEach(element => {
@@ -38,6 +41,7 @@ function getsIds(elementosNodos: string[]) {
 }
 
 function getsLabels(elementosNodos: any[]) {
+
   var labels: any[] = []
   var i = 0;
   elementosNodos.forEach(element => {
@@ -52,6 +56,7 @@ function getsLabels(elementosNodos: any[]) {
 }
 
 function getsRelaciones(elementosFlechas: string[]) {
+  
   var srcId: string[] = []
   var tgtId: string[] = []
   var i = 0;

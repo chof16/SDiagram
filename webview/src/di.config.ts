@@ -19,6 +19,7 @@ import { ElkFactory, ElkLayoutEngine, elkLayoutModule } from 'sprotty-elk/lib/in
 export default (containerId: string) => {
 
     require("../css/diagram.css");
+
     const elkFactory: ElkFactory = () => new ElkConstructor({
         defaultLayoutOptions:{
             'algorithm': 'mrtree',
@@ -27,6 +28,7 @@ export default (containerId: string) => {
         },
         algorithms: ["mrtree"],
         });
+        
     const classDiagramModule = new ContainerModule((bind, unbind, isBound, rebind) => {
         bind(TYPES.ModelSource).to(ClassDiagramModelSource).inSingletonScope();
         bind(TYPES.IModelLayoutEngine).toService(ElkLayoutEngine);

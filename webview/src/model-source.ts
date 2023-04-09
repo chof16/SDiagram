@@ -35,7 +35,7 @@ export class ClassDiagramModelSource extends LocalModelSource {
     protected handleSelection(action:SelectAction){
         let id =action.selectedElementsIDs[0];
         let nodo=this.graph.children.filter(h => h.id == id)
-
+        //Dependiendo del tipo de diagrama completar la ruta
         if(this.opcion=="2"){
             let padre=this.graph.children.filter(h => h.type=="edge:straight" && h.targetId==id)
             let ruta=this.getRuta(padre[0])
@@ -51,6 +51,7 @@ export class ClassDiagramModelSource extends LocalModelSource {
     }
 
     protected getRuta(actual:SModelElement){
+
         if(actual.sourceId=="0"){
             let nodo=this.graph.children.filter(h => h.id == "0")
             let comp=nodo[0].children[0]
@@ -58,7 +59,6 @@ export class ClassDiagramModelSource extends LocalModelSource {
             console.log(label.text)
             return label.text
         }
-
         else{
             console.log(actual["sourceId"])
             let ruta=''

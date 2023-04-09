@@ -72,42 +72,41 @@ export function activate(context: vscode.ExtensionContext) {
       idGlobal = 1
       let directorios: any = []
       let uriWorkSpace = vscode.workspace.workspaceFolders[0].uri
-      console.log(uriWorkSpace)
 
       //Archivos y directorios del workspace raiz
       let files = readdirSync(uriWorkSpace.fsPath)
-      let obj: any = {}
-      obj.path = (uriWorkSpace.fsPath)
-      obj.id = 0
       estructura.nodes.push({ id: 0, label: uriWorkSpace.fsPath })
 
       files.forEach(function (file) {
         let obj: any = {}
         obj.path = (uriWorkSpace.fsPath + "/" + file)
         obj.id = idGlobal
+
         if (lstatSync(obj.path).isDirectory() && checkRightFolder(file)) {
 
           directorios.push(obj)
 
           estructura.nodes.push({ id: idGlobal, label: file })
-          estructura.edges.push({ srcId: 0, tgtid: idGlobal })
+          estructura.edges.push({ srcId: 0, tgtId: idGlobal })
           idGlobal++
         }
+
         else if (lstatSync(obj.path).isFile() && checkRightFile(file)) {
 
           estructura.nodes.push({ id: idGlobal, label: file })
-          estructura.edges.push({ srcId: 0, tgtid: idGlobal })
+          estructura.edges.push({ srcId: 0, tgtId: idGlobal })
           idGlobal++
         }
       })
+
       if (directorios.length != 0) {
         estructura = leerDirectorios(estructura, directorios)
       }
 
-
-      console.log(estructura)
       // And set its HTML content
       panel.webview.html = getContentFromArray(panel.webview, context, estructura);
+
+      //Si recibe un mensaje de la webview
       panel.webview.onDidReceiveMessage(
         message => {
           switch(message.command){
@@ -121,6 +120,7 @@ export function activate(context: vscode.ExtensionContext) {
   )
 
   context.subscriptions.push(vscode.commands.registerCommand('diagram.dependencies',()=>{
+
     const options: vscode.OpenDialogOptions = {
       title: "Selecciona un archivo .ts o .js",
       canSelectMany: false,
@@ -128,14 +128,16 @@ export function activate(context: vscode.ExtensionContext) {
       canSelectFiles: true,
       canSelectFolders: false
     };
+
     vscode.window.showOpenDialog(options).then(fileUri => {
       if (fileUri && fileUri[0]) {
         file = fileUri[0].fsPath;
+
         if(!file.includes(".ts") && !file.includes(".js")){
           vscode.window.showErrorMessage('FIle must be .js or .ts');
           return
         }
-        console.log("File:" + file);
+
         const panel = vscode.window.createWebviewPanel(
           'Diagrama',
           'Diagrama Dependencias',
@@ -148,6 +150,8 @@ export function activate(context: vscode.ExtensionContext) {
         );
         // And set its HTML content
         panel.webview.html = getDependenciesFromFile(panel.webview, context,file);
+
+        //Si recibe un mensaje de la webview
         panel.webview.onDidReceiveMessage(
           message => {
             switch(message.command){
@@ -189,13 +193,13 @@ function leerDirectorios(estructura: any, directorios: any[]) {
         directoriosLocales.push(obj)
 
         estructura.nodes.push({ id: idGlobal, label: file })
-        estructura.edges.push({ srcId: dir["id"], tgtid: idGlobal })
+        estructura.edges.push({ srcId: dir["id"], tgtId: idGlobal })
         idGlobal++
       }
       else if (lstatSync(obj.path).isFile() && checkRightFile(file)) {
 
         estructura.nodes.push({ id: idGlobal, label: file })
-        estructura.edges.push({ srcId: dir["id"], tgtid: idGlobal })
+        estructura.edges.push({ srcId: dir["id"], tgtId: idGlobal })
         idGlobal++
       }
     })

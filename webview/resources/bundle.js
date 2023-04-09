@@ -34234,6 +34234,7 @@ let ClassDiagramModelSource = class ClassDiagramModelSource extends sprotty_1.Lo
     handleSelection(action) {
         let id = action.selectedElementsIDs[0];
         let nodo = this.graph.children.filter(h => h.id == id);
+        //Dependiendo del tipo de diagrama completar la ruta
         if (this.opcion == "2") {
             let padre = this.graph.children.filter(h => h.type == "edge:straight" && h.targetId == id);
             let ruta = this.getRuta(padre[0]);
