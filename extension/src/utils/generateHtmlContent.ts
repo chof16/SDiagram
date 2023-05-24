@@ -1,6 +1,5 @@
 import * as vscode from 'vscode';
 import { readFileSync } from 'fs';
-import * as examples from './arraysJsonFiles';
 import { resolve } from 'path';
 
 export function getContentFromFile(webview: vscode.Webview, context: vscode.ExtensionContext, file: string): string {
@@ -9,7 +8,26 @@ export function getContentFromFile(webview: vscode.Webview, context: vscode.Exte
 
     let datos = readFileSync(file, { encoding: "utf-8", flag: "r" })
 
-    let { ids, labels, srcId, tgtId } = examples.getArrays(datos);
+    let objetoJson=JSON.parse(datos)
+
+    let srcIds:string[]=[];
+    let tgtIds:string[]=[];
+    let ids: string[]=[];
+    let labels: string[]=[];
+
+    objetoJson.nodes.forEach((element: {
+        id: string; label: string; 
+}) => {
+        ids.push(element.id);
+        labels.push(element.label);
+    });
+
+    objetoJson.edges.forEach((element: {
+        tgtId: string; srcId: string; 
+}) => {
+        srcIds.push(element.srcId);
+        tgtIds.push(element.tgtId);
+    });
 
     return `<!DOCTYPE html>
     <html>
@@ -40,7 +58,7 @@ export function getContentFromFile(webview: vscode.Webview, context: vscode.Exte
                 </div>
             </div>
         </div>
-        <script src="${bundleUri}" ids="${ids}", labels="${labels}", srcIds="${srcId}", tgtIds="${tgtId}", opcion=1></script>
+        <script src="${bundleUri}" ids="${ids}", labels="${labels}", srcIds="${srcIds}", tgtIds="${tgtIds}", opcion=1></script>
     </body>
     
     </html>`
@@ -112,7 +130,7 @@ export function getDependenciesFromFile(webview: vscode.Webview, context: vscode
     let { elements, files } = getDependencies(datos, file);
 
     let ids: number[] = []
-    let labels: any[] = []
+    let labels: String[] = []
     let srcId: number[] = []
     let tgtId: number[] = []
     let idActual = 1;
@@ -134,7 +152,6 @@ export function getDependenciesFromFile(webview: vscode.Webview, context: vscode
         let el = entry.split(",")
         
         for (let e of el) {
-            console.log(e)
             ids[idActual] = idActual
             labels[idActual] = e
             srcId[j] = idSource

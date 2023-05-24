@@ -3,7 +3,8 @@
 import * as vscode from 'vscode';
 import * as path from 'path'
 import { readdirSync, lstatSync, existsSync } from 'fs';
-import { getContentFromArray, getContentFromFile, 
+import { getContentFromArray,
+  getContentFromFile,
   getDependenciesFromFile } from './utils/generateHtmlContent';
 import { resolve } from 'path';
 
@@ -33,7 +34,7 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.window.showErrorMessage('File must be .json');
             return
           }
-          console.log("File:" + file);
+
           const panel = vscode.window.createWebviewPanel(
             'Diagrama',
             'Diagrama Json',
@@ -44,8 +45,9 @@ export function activate(context: vscode.ExtensionContext) {
               localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, "..", "webview",))]
             }
           );
+          
           // And set its HTML content
-          panel.webview.html = getContentFromFile(panel.webview, context,file);
+         panel.webview.html = getContentFromFile(panel.webview, context,file);
         }
       });;
     })
@@ -134,7 +136,7 @@ export function activate(context: vscode.ExtensionContext) {
         file = fileUri[0].fsPath;
 
         if(!file.includes(".ts") && !file.includes(".js")){
-          vscode.window.showErrorMessage('FIle must be .js or .ts');
+          vscode.window.showErrorMessage('File must be .js or .ts');
           return
         }
 
@@ -203,6 +205,7 @@ function leerDirectorios(estructura: any, directorios: any[]) {
         idGlobal++
       }
     })
+
     if (directoriosLocales.length != 0) {
       estructura = leerDirectorios(estructura, directoriosLocales)
     }
