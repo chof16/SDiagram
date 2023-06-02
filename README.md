@@ -23,7 +23,7 @@
 
 <!--Usage-->
 ## Usage
-First, download and install the extion from the VS Code Marketplace.
+First, download and install the extension from the VS Code Marketplace.
 
 After installation, the extension is enabled automatically.
 
