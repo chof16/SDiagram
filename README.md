@@ -4,7 +4,7 @@
 <!---Description-->
 <center>
 <p>
- Open-source visualization tool with <a href="https://github.com/eclipse-sprotty/sprotty">Sprotty</a> ,for VS Code.
+ Open-source visualization tool with <a href="https://github.com/eclipse-sprotty/sprotty">Sprotty</a>, for VS Code.
 </p>
 </center>
 
