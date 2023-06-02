@@ -23,7 +23,7 @@ export default (containerId: string) => {
     const elkFactory: ElkFactory = () => new ElkConstructor({
         defaultLayoutOptions:{
             'algorithm': 'mrtree',
-            'direction' : 'DOWN',
+            'direction' : 'RIGHT',
             "spacing" : "40"
         },
         algorithms: ["mrtree"],

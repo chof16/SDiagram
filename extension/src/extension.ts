@@ -135,8 +135,8 @@ export function activate(context: vscode.ExtensionContext) {
       if (fileUri && fileUri[0]) {
         file = fileUri[0].fsPath;
 
-        if(!file.includes(".ts") && !file.includes(".js")){
-          vscode.window.showErrorMessage('File must be .js or .ts');
+        if(!file.includes(vscode.workspace.workspaceFolders[0].uri.path) || (!file.includes(".ts") && !file.includes(".js"))){
+          vscode.window.showErrorMessage('File must be .js or .ts and  must be located on active workspace');
           return
         }
 

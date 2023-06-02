@@ -218,7 +218,6 @@ function getDependencies(datos: string, file: string): { elements: any, files: a
     var imports = datos.matchAll(/import\s+?(?:(?:(?:[\w*\s{},]*)\s+from\s+?)|)(?:(?:".*?")|(?:'.*?'))[\s]*?(?:;|$|)/g)
     var elements = []
     var files = []
-    var i = 0
     var j = 0
 
     for (let entry of imports) {
@@ -263,8 +262,8 @@ function getDependencies(datos: string, file: string): { elements: any, files: a
 
             }
 
-            files[i] = resolve(directorio, filePath)
-            i++
+            files.push(resolve(directorio, filePath))
+
         }
     }
     return { elements, files }

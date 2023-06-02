@@ -34132,7 +34132,7 @@ exports["default"] = (containerId) => {
     const elkFactory = () => new elk_bundled_1.default({
         defaultLayoutOptions: {
             'algorithm': 'mrtree',
-            'direction': 'DOWN',
+            'direction': 'RIGHT',
             "spacing": "40"
         },
         algorithms: ["mrtree"],
