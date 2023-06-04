@@ -15,7 +15,7 @@
 
 - **Generation of the diagram from workspace**. The objective is to show the structure of the active folder at the workspace.
 
-- **Generation of the diagram of local dependencies of a file** By selecting a file from the workspace, it shows a diagram with the dependencies  of files, which belongs to the project.
+- **Generation of the diagram of local dependencies of a file** By selecting a file from the workspace, it shows a diagram with the dependencies file dependencies, those files which belongs to the project.
 
 - **Open a file from the diagram**. By selecting a node of the diagram, the extension allows opening the file.
 
@@ -28,7 +28,7 @@ First, download and install the extension from the VS Code Marketplace.
 After installation, the extension is enabled automatically.
 
 **Generation of a diagram from JSON file**
-To create it, the user writes on command palette (`Ctrl+Shift+P`) `Create Diagram`. It opens a dialog, where the user must choose a `.json` file. The file has to contain the following structure:
+To create it, the user writes on the command palette (`Ctrl+Shift+P`) `Create Diagram`. It opens a dialog box, where the user must choose a `.json` file. The file has to contain the following structure:
 
 ```json
 {
@@ -63,7 +63,7 @@ To create it, the user writes on command palette (`Ctrl+Shift+P`) `Create Diagra
  }
 ```
 
-The file must contain only the attributes nodes and edges. Nodes contains an array with fields called ids and labels, while edges has an array with fields called srcId and tgtId.
+The file must contain only the attribute nodes and edges. Nodes contains an array with fields called ids and labels, while edges has an array with fields called srcId and tgtId.
 
 **Generation of the diagram from workspace**
 
@@ -82,7 +82,7 @@ Through the command `Generate Diagram Dependencies from a File`, the user select
 - [VS Code](https://code.visualstudio.com/)
 - [yarn](https://yarnpkg.com/)
 
-Next, download or clone the repository and in the root execute the following commands:
+Next, download or clone the repository and in the root folder execute the following commands:
 
 ```bash
     npm run build
