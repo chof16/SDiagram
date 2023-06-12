@@ -1,65 +1,95 @@
-# component-diagram README
+<!---Title-->
+<h1 align="center">SDiagram</h1>
 
-This is the README for your extension "component-diagram". After writing up a brief description, we recommend including the following sections.
+<!---Description-->
+<center>
+<p>
+ Open-source visualization tool with <a href="https://github.com/eclipse-sprotty/sprotty">Sprotty</a>, for VS Code.
+</p>
+</center>
 
-## Features
+<!-- Main Features -->
+**Main features:**
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Generation of a diagram from JSON file**. Choosing a JSON file, it creates a diagram.
 
-For example if there is an image subfolder under your extension project workspace:
+- **Generation of the diagram from workspace**. The objective is to show the structure of the active folder at the workspace.
 
-\!\[feature X\]\(images/feature-x.png\)
+- **Generation of the diagram of local dependencies of a file** By selecting a file from the workspace, it shows a diagram with the dependencies file dependencies, those files which belongs to the project.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- **Open a file from the diagram**. By selecting a node of the diagram, the extension allows opening the file.
 
-## Requirements
+<br />
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+<!--Usage-->
+## Usage
+First, download and install the extension from the VS Code Marketplace.
 
-## Extension Settings
+After installation, the extension is enabled automatically.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+**Generation of a diagram from JSON file**
+To create it, the user writes on the command palette (`Ctrl+Shift+P`) `Create Diagram`. It opens a dialog box, where the user must choose a `.json` file. The file has to contain the following structure:
 
-For example:
+```json
+{
+    "nodes": [
+        {
+            "id":  1,
+            "label": "Class1"
+        },
+        {
+            "id": 2,
+            "label": "Class2"
+        },
+        {
+            "id": 3,
+            "label": "Class3"
+        },
+        {
+            "id": 4,
+            "label": "Class4"
+        } 
+    ],
+    "edges": [
+        {
+            "srcId": 1,
+            "tgtId": 2
+        },
+        {
+            "srcId": 2,
+            "tgtId": 4
+        }
+      ]
+ }
+```
 
-This extension contributes the following settings:
+The file must contain only the attribute nodes and edges. Nodes contains an array with fields called ids and labels, while edges has an array with fields called srcId and tgtId.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+**Generation of the diagram from workspace**
 
-## Known Issues
+If a folder is active on the workspace, through the command palette the user has to write `Generate Diagram of Workspace Project`, and the extension creates it  automatically.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+**Generation of the diagram of local dependencies of a file**
 
-## Release Notes
+Through the command `Generate Diagram Dependencies from a File`, the user selects a file that belongs to the project, showing its dependencies with other files inside the same project.
 
-Users appreciate release notes as you update your extension.
+<!-- Build -->
+## Build
 
-### 1.0.0
+**Prerequisites**
 
-Initial release of ...
+- [Node.js](https://nodejs.org/en/)
+- [VS Code](https://code.visualstudio.com/)
+- [yarn](https://yarnpkg.com/)
 
-### 1.0.1
+Next, download or clone the repository and in the root folder execute the following commands:
 
-Fixed issue #.
+```bash
+    npm run build
+    cd extension 
+    npm run build
+    cd ../webview
+    npm run build
+```
 
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+After building the project, the extension can be run in VS Code by pressing <kbd>F5</kbd> or selecting `Run ➜ Start Debugging` from the menu.
