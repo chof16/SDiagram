@@ -85,7 +85,6 @@ Through the command `Generate Diagram Dependencies from a File`, the user select
 Next, download or clone the repository and in the root folder execute the following commands:
 
 ```bash
-    npm run build
     cd extension 
     npm run build
     cd ../webview
