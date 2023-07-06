@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./css/diagram.css":
-/*!***************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./css/diagram.css ***!
-  \***************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!../extension/media/diagram.css":
+/*!****************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!../extension/media/diagram.css ***!
+  \****************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -12,16 +12,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _webview_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../webview/node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _webview_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_webview_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _webview_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../webview/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _webview_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_webview_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
 
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+var ___CSS_LOADER_EXPORT___ = _webview_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_webview_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".sprotty-graph {\n    font-size: 15pt;\n}\n\n.sprotty-node {\n    stroke-width: 0;\n    font-weight: bold;\n}\n\n.sprotty-node.selected {\n    stroke-width: 5;\n}\n\n.sprotty-node.mouseover:not(.selected) {\n    stroke-width: 3;\n}\n\n.node-hoja {\n    fill: rgb(6, 173, 245);\n    stroke: rgb(0, 0, 0);\n}\n\n.node-nodo {\n    fill: rgb(251, 238, 0);\n    stroke: rgb(0, 0, 0);\n}\n\n.sprotty-comp {\n    line-height: 3px;\n    font-weight: normal;\n    text-align: left;\n}\n\n.sprotty-label {\n    stroke-width: 0;\n    fill: #000;\n    font-weight: inherit;\n    text-align: inherit;\n    font-size: 100%;\n}\n\n.sprotty-label.heading {\n    font-weight: bold;\n}\n\n.sprotty-icon {\n    fill: #153;\n    stroke-width: 0;\n}\n\n.sprotty-label.icon {\n    fill: #fff;\n}\n\n.sprotty-button {\n    fill: #152;\n    stroke-width: 0;\n}\n\n.sprotty-edge {\n    fill: none;\n    stroke: rgb(0, 0, 0);\n    stroke-width: 2px;\n}\n\n.sprotty-edge.selected {\n    stroke: #844;\n    stroke-width: 4px;\n}\n\n.sprotty-edge.mouseover:not(.selected) {\n    stroke-width: 3px;\n}\n\n.sprotty-edge > .sprotty-routing-handle {\n    fill: #884;\n    stroke: none;\n    z-index: 1000;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='line'] {\n    opacity: 0.35;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-add'] {\n    fill: #2B2;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-remove'] {\n    fill: #B00;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-before'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-after'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle.selected {\n    fill: #66a;\n}\n\n.sprotty-edge > .sprotty-routing-handle.mouseover {\n    stroke: #112;\n    stroke-width: 1;\n}\n\n.sprotty-missing {\n    stroke-width: 1;\n    stroke: #f00;\n    fill: #f00;\n    font-size: 14pt;\n    text-anchor: middle;\n}\n\n.sprotty-popup-title {\n    font-weight: bold;\n    margin-bottom: 10px;\n}\n\n.sprotty-popup-body > p {\n    margin-bottom: 2px;\n}", "",{"version":3,"sources":["webpack://./css/diagram.css"],"names":[],"mappings":"AAAA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;IACf,iBAAiB;AACrB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;IACtB,oBAAoB;AACxB;;AAEA;IACI,sBAAsB;IACtB,oBAAoB;AACxB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;IACnB,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,UAAU;IACV,oBAAoB;IACpB,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,UAAU;IACV,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;IACV,eAAe;AACnB;;AAEA;IACI,UAAU;IACV,oBAAoB;IACpB,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,iBAAiB;AACrB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,UAAU;IACV,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,eAAe;IACf,YAAY;IACZ,UAAU;IACV,eAAe;IACf,mBAAmB;AACvB;;AAEA;IACI,iBAAiB;IACjB,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".sprotty-graph {\n    font-size: 15pt;\n}\n\n.sprotty-node {\n    stroke-width: 0;\n    font-weight: bold;\n}\n\n.sprotty-node.selected {\n    stroke-width: 5;\n}\n\n.sprotty-node.mouseover:not(.selected) {\n    stroke-width: 3;\n}\n\n.node-hoja {\n    fill: rgb(6, 173, 245);\n    stroke: rgb(0, 0, 0);\n}\n\n.node-nodo {\n    fill: rgb(251, 238, 0);\n    stroke: rgb(0, 0, 0);\n}\n\n.sprotty-comp {\n    line-height: 3px;\n    font-weight: normal;\n    text-align: left;\n}\n\n.sprotty-label {\n    stroke-width: 0;\n    fill: #000;\n    font-weight: inherit;\n    text-align: inherit;\n    font-size: 100%;\n}\n\n.sprotty-label.heading {\n    font-weight: bold;\n}\n\n.sprotty-icon {\n    fill: #153;\n    stroke-width: 0;\n}\n\n.sprotty-label.icon {\n    fill: #fff;\n}\n\n.sprotty-button {\n    fill: #152;\n    stroke-width: 0;\n}\n\n.sprotty-edge {\n    fill: none;\n    stroke: rgb(0, 0, 0);\n    stroke-width: 2px;\n}\n\n.sprotty-edge.selected {\n    stroke: #844;\n    stroke-width: 4px;\n}\n\n.sprotty-edge.mouseover:not(.selected) {\n    stroke-width: 3px;\n}\n\n.sprotty-edge > .sprotty-routing-handle {\n    fill: #884;\n    stroke: none;\n    z-index: 1000;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='line'] {\n    opacity: 0.35;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-add'] {\n    fill: #2B2;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-remove'] {\n    fill: #B00;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-before'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-after'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle.selected {\n    fill: #66a;\n}\n\n.sprotty-edge > .sprotty-routing-handle.mouseover {\n    stroke: #112;\n    stroke-width: 1;\n}\n\n.sprotty-missing {\n    stroke-width: 1;\n    stroke: #f00;\n    fill: #f00;\n    font-size: 14pt;\n    text-anchor: middle;\n}\n\n.sprotty-popup-title {\n    font-weight: bold;\n    margin-bottom: 10px;\n}\n\n.sprotty-popup-body > p {\n    margin-bottom: 2px;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".sprotty-graph {\n    font-size: 15pt;\n}\n\n.sprotty-node {\n    stroke-width: 0;\n    font-weight: bold;\n}\n\n.sprotty-node.selected {\n    stroke-width: 5;\n}\n\n.sprotty-node.mouseover:not(.selected) {\n    stroke-width: 3;\n}\n\n.node-hoja {\n    fill: rgb(6, 173, 245);\n    stroke: rgb(0, 0, 0);\n}\n\n.node-nodo {\n    fill: rgb(251, 238, 0);\n    stroke: rgb(0, 0, 0);\n}\n\n.sprotty-comp {\n    line-height: 3px;\n    font-weight: normal;\n    text-align: left;\n}\n\n.sprotty-label {\n    stroke-width: 0;\n    fill: #000;\n    font-weight: inherit;\n    text-align: inherit;\n    font-size: 100%;\n}\n\n.sprotty-label.heading {\n    font-weight: bold;\n}\n\n.sprotty-icon {\n    fill: #153;\n    stroke-width: 0;\n}\n\n.sprotty-label.icon {\n    fill: #fff;\n}\n\n.sprotty-button {\n    fill: #152;\n    stroke-width: 0;\n}\n\n.sprotty-edge {\n    fill: none;\n    stroke: rgb(0, 0, 0);\n    stroke-width: 2px;\n}\n\n.sprotty-edge.selected {\n    stroke: #844;\n    stroke-width: 4px;\n}\n\n.sprotty-edge.mouseover:not(.selected) {\n    stroke-width: 3px;\n}\n\n.sprotty-edge > .sprotty-routing-handle {\n    fill: #884;\n    stroke: none;\n    z-index: 1000;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='line'] {\n    opacity: 0.35;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-add'] {\n    fill: #2B2;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-remove'] {\n    fill: #B00;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-before'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-after'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle.selected {\n    fill: #66a;\n}\n\n.sprotty-edge > .sprotty-routing-handle.mouseover {\n    stroke: #112;\n    stroke-width: 1;\n}\n\n.sprotty-missing {\n    stroke-width: 1;\n    stroke: #f00;\n    fill: #f00;\n    font-size: 14pt;\n    text-anchor: middle;\n}\n\n.sprotty-popup-title {\n    font-weight: bold;\n    margin-bottom: 10px;\n}\n\n.sprotty-popup-body > p {\n    margin-bottom: 2px;\n}", "",{"version":3,"sources":["webpack://./../extension/media/diagram.css"],"names":[],"mappings":"AAAA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;IACf,iBAAiB;AACrB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;IACtB,oBAAoB;AACxB;;AAEA;IACI,sBAAsB;IACtB,oBAAoB;AACxB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;IACnB,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,UAAU;IACV,oBAAoB;IACpB,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,UAAU;IACV,eAAe;AACnB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;IACV,eAAe;AACnB;;AAEA;IACI,UAAU;IACV,oBAAoB;IACpB,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,iBAAiB;AACrB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,UAAU;IACV,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,eAAe;IACf,YAAY;IACZ,UAAU;IACV,eAAe;IACf,mBAAmB;AACvB;;AAEA;IACI,iBAAiB;IACjB,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".sprotty-graph {\n    font-size: 15pt;\n}\n\n.sprotty-node {\n    stroke-width: 0;\n    font-weight: bold;\n}\n\n.sprotty-node.selected {\n    stroke-width: 5;\n}\n\n.sprotty-node.mouseover:not(.selected) {\n    stroke-width: 3;\n}\n\n.node-hoja {\n    fill: rgb(6, 173, 245);\n    stroke: rgb(0, 0, 0);\n}\n\n.node-nodo {\n    fill: rgb(251, 238, 0);\n    stroke: rgb(0, 0, 0);\n}\n\n.sprotty-comp {\n    line-height: 3px;\n    font-weight: normal;\n    text-align: left;\n}\n\n.sprotty-label {\n    stroke-width: 0;\n    fill: #000;\n    font-weight: inherit;\n    text-align: inherit;\n    font-size: 100%;\n}\n\n.sprotty-label.heading {\n    font-weight: bold;\n}\n\n.sprotty-icon {\n    fill: #153;\n    stroke-width: 0;\n}\n\n.sprotty-label.icon {\n    fill: #fff;\n}\n\n.sprotty-button {\n    fill: #152;\n    stroke-width: 0;\n}\n\n.sprotty-edge {\n    fill: none;\n    stroke: rgb(0, 0, 0);\n    stroke-width: 2px;\n}\n\n.sprotty-edge.selected {\n    stroke: #844;\n    stroke-width: 4px;\n}\n\n.sprotty-edge.mouseover:not(.selected) {\n    stroke-width: 3px;\n}\n\n.sprotty-edge > .sprotty-routing-handle {\n    fill: #884;\n    stroke: none;\n    z-index: 1000;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='line'] {\n    opacity: 0.35;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-add'] {\n    fill: #2B2;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-remove'] {\n    fill: #B00;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-before'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle[data-kind='bezier-control-after'] {\n    fill: #44E;\n}\n\n.sprotty-edge > .sprotty-routing-handle.selected {\n    fill: #66a;\n}\n\n.sprotty-edge > .sprotty-routing-handle.mouseover {\n    stroke: #112;\n    stroke-width: 1;\n}\n\n.sprotty-missing {\n    stroke-width: 1;\n    stroke: #f00;\n    fill: #f00;\n    font-size: 14pt;\n    text-anchor: middle;\n}\n\n.sprotty-popup-title {\n    font-weight: bold;\n    margin-bottom: 10px;\n}\n\n.sprotty-popup-body > p {\n    margin-bottom: 2px;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -34053,10 +34053,10 @@ function defaultCompare(a, b) {
 
 /***/ }),
 
-/***/ "./css/diagram.css":
-/*!*************************!*\
-  !*** ./css/diagram.css ***!
-  \*************************/
+/***/ "../extension/media/diagram.css":
+/*!**************************************!*\
+  !*** ../extension/media/diagram.css ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -34064,19 +34064,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_diagram_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!./diagram.css */ "./node_modules/css-loader/dist/cjs.js!./css/diagram.css");
+/* harmony import */ var _webview_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../webview/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _webview_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_webview_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _webview_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../webview/node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _webview_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_webview_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _webview_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../webview/node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _webview_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_webview_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _webview_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../webview/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _webview_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_webview_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _webview_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../webview/node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _webview_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_webview_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _webview_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../webview/node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _webview_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_webview_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _webview_node_modules_css_loader_dist_cjs_js_diagram_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../webview/node_modules/css-loader/dist/cjs.js!./diagram.css */ "./node_modules/css-loader/dist/cjs.js!../extension/media/diagram.css");
 
       
       
@@ -34090,20 +34090,20 @@ __webpack_require__.r(__webpack_exports__);
 
 var options = {};
 
-options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
-options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+options.styleTagTransform = (_webview_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_webview_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
 
-      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+      options.insert = _webview_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
     
-options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
-options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+options.domAPI = (_webview_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_webview_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_diagram_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
-
-
+var update = _webview_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_webview_node_modules_css_loader_dist_cjs_js_diagram_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_diagram_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_diagram_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_diagram_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_webview_node_modules_css_loader_dist_cjs_js_diagram_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _webview_node_modules_css_loader_dist_cjs_js_diagram_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _webview_node_modules_css_loader_dist_cjs_js_diagram_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -34128,7 +34128,7 @@ const bezier_edge_router_1 = __webpack_require__(/*! sprotty/lib/features/routin
 const elk_bundled_1 = __webpack_require__(/*! elkjs/lib/elk.bundled */ "./node_modules/elkjs/lib/elk.bundled.js");
 const inversify_2 = __webpack_require__(/*! sprotty-elk/lib/inversify */ "./node_modules/sprotty-elk/lib/inversify.js");
 exports["default"] = (containerId) => {
-    __webpack_require__(/*! ../css/diagram.css */ "./css/diagram.css");
+    __webpack_require__(/*! ../../extension/media/diagram.css */ "../extension/media/diagram.css");
     const elkFactory = () => new elk_bundled_1.default({
         defaultLayoutOptions: {
             'algorithm': 'mrtree',
@@ -34469,10 +34469,6 @@ function runClassDiagram() {
             i++;
         }
     }
-    console.log(ids);
-    console.log(labels);
-    console.log(srcId);
-    console.log(tgtId);
     const modelSource = container.get(sprotty_1.TYPES.ModelSource);
     modelSource.updateModel();
     modelSource.modifyGraph(ids, labels, srcId, tgtId, sources, opcion);
@@ -34480,7 +34476,6 @@ function runClassDiagram() {
 }
 exports.runClassDiagram = runClassDiagram;
 function enviarMensaje(texto) {
-    console.log(texto);
     vscode.postMessage({
         command: "abrirArchivo",
         text: texto

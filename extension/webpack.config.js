@@ -8,7 +8,7 @@ const config = {
     target: 'node', 
     entry: path.resolve(__dirname, 'src/extension.ts'),
     output: { 
-        path: path.resolve(__dirname, 'pack'),
+        path: path.resolve(__dirname, 'media'),
         filename: 'main.js',
         libraryTarget: "commonjs2",
         devtoolModuleFilenameTemplate: '../[resource-path]'

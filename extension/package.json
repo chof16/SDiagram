@@ -2,10 +2,15 @@
   "name": "component-diagram",
   "displayName": "SDiagram",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "publisher": "chofff16",
   "engines": {
     "vscode": "^1.75.0"
   },
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/chof16/SDiagram"
+	},
   "categories": [
     "Visualization"
   ],
@@ -28,7 +33,7 @@
 "activationEvents": [
   "onStartupFinished"
 ],
-  "main": "./pack/main.js",
+  "main": "./media/main.js",
   "scripts": {
     "prepare": "yarn run clean && yarn run build ",
     "build": "webpack --mode=development",

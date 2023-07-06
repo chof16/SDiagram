@@ -25,11 +25,6 @@ export function runClassDiagram(): void {
         }
     }
 
-    console.log(ids)
-    console.log(labels)
-    console.log(srcId)
-    console.log(tgtId)
-
     const modelSource = container.get<ClassDiagramModelSource>(TYPES.ModelSource);
     modelSource.updateModel();
 
@@ -38,7 +33,6 @@ export function runClassDiagram(): void {
 }
 
 export function enviarMensaje(texto:string){
-    console.log(texto)
     vscode.postMessage({
         command : "abrirArchivo",
         text:texto

@@ -201,8 +201,8 @@ export function getDependenciesFromFile(webview: vscode.Webview, context: vscode
 
 function getUris(context: vscode.ExtensionContext, webview: vscode.Webview) {
 
-    const page = vscode.Uri.joinPath(context.extensionUri, "..", "webview", "css", "page.css");
-    const bundle = vscode.Uri.joinPath(context.extensionUri, "..", "webview", "resources", "bundle.js");
+    const page = vscode.Uri.joinPath(context.extensionUri, "media", "page.css");
+    const bundle = vscode.Uri.joinPath(context.extensionUri, "media", "bundle.js");
 
     const pageUri = webview.asWebviewUri(page);
     const bundleUri = webview.asWebviewUri(bundle);

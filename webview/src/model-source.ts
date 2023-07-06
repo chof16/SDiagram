@@ -114,7 +114,7 @@ export class ClassDiagramModelSource extends LocalModelSource {
                     },
                 ]
             };
-            this.graph.children.push(node);
+            this.graph.children.push(node) ;
             i++;
         });
         i=0;

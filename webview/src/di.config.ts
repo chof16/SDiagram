@@ -18,7 +18,7 @@ import { ElkFactory, ElkLayoutEngine, elkLayoutModule } from 'sprotty-elk/lib/in
 
 export default (containerId: string) => {
 
-    require("../css/diagram.css");
+    require("../../extension/media/diagram.css");
 
     const elkFactory: ElkFactory = () => new ElkConstructor({
         defaultLayoutOptions:{

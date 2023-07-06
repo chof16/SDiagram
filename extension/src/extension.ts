@@ -3,9 +3,11 @@
 import * as vscode from 'vscode';
 import * as path from 'path'
 import { readdirSync, lstatSync, existsSync } from 'fs';
-import { getContentFromArray,
+import {
+  getContentFromArray,
   getContentFromFile,
-  getDependenciesFromFile } from './utils/generateHtmlContent';
+  getDependenciesFromFile
+} from './utils/generateHtmlContent';
 import { resolve } from 'path';
 
 // This method is called when your extension is activated
@@ -15,8 +17,6 @@ let file: string;
 var idGlobal: number;
 
 export function activate(context: vscode.ExtensionContext) {
-
-  console.log("extension activada");
 
   context.subscriptions.push(
     vscode.commands.registerCommand('diagram.open', () => {
@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
       vscode.window.showOpenDialog(options).then(fileUri => {
         if (fileUri && fileUri[0]) {
           file = fileUri[0].fsPath;
-          if(!file.includes(".json")){
+          if (!file.includes(".json")) {
             vscode.window.showErrorMessage('File must be .json');
             return
           }
@@ -42,12 +42,12 @@ export function activate(context: vscode.ExtensionContext) {
 
             {
               enableScripts: true,
-              localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, "..", "webview",))]
+              localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, "media",))]
             }
           );
-          
+
           // And set its HTML content
-         panel.webview.html = getContentFromFile(panel.webview, context,file);
+          panel.webview.html = getContentFromFile(panel.webview, context, file);
         }
       });;
     })
@@ -63,7 +63,7 @@ export function activate(context: vscode.ExtensionContext) {
 
         {
           enableScripts: true,
-          localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, "..", "webview",))]
+          localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, "media",))]
         }
       );
 
@@ -111,7 +111,7 @@ export function activate(context: vscode.ExtensionContext) {
       //Si recibe un mensaje de la webview
       panel.webview.onDidReceiveMessage(
         message => {
-          switch(message.command){
+          switch (message.command) {
             case 'abrirArchivo':
               abrirArchivo(message.text)
           }
@@ -121,7 +121,7 @@ export function activate(context: vscode.ExtensionContext) {
     )
   )
 
-  context.subscriptions.push(vscode.commands.registerCommand('diagram.dependencies',()=>{
+  context.subscriptions.push(vscode.commands.registerCommand('diagram.dependencies', () => {
 
     const options: vscode.OpenDialogOptions = {
       title: "Selecciona un archivo .ts o .js",
@@ -135,7 +135,7 @@ export function activate(context: vscode.ExtensionContext) {
       if (fileUri && fileUri[0]) {
         file = fileUri[0].fsPath;
 
-        if(!file.includes(vscode.workspace.workspaceFolders[0].uri.path) || (!file.includes(".ts") && !file.includes(".js"))){
+        if (!file.includes(vscode.workspace.workspaceFolders[0].uri.path) || (!file.includes(".ts") && !file.includes(".js"))) {
           vscode.window.showErrorMessage('File must be .js or .ts and  must be located on active workspace');
           return
         }
@@ -147,16 +147,16 @@ export function activate(context: vscode.ExtensionContext) {
 
           {
             enableScripts: true,
-            localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, "..", "webview",))]
+            localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, "media",))]
           }
         );
         // And set its HTML content
-        panel.webview.html = getDependenciesFromFile(panel.webview, context,file);
+        panel.webview.html = getDependenciesFromFile(panel.webview, context, file);
 
         //Si recibe un mensaje de la webview
         panel.webview.onDidReceiveMessage(
           message => {
-            switch(message.command){
+            switch (message.command) {
               case 'abrirArchivo':
                 abrirArchivo(message.text)
             }
@@ -215,19 +215,19 @@ function leerDirectorios(estructura: any, directorios: any[]) {
 }
 function abrirArchivo(archivo: any) {
 
-  let ruta=resolve(vscode.workspace.workspaceFolders[0].name,archivo)
-  if(!ruta.includes(".ts") && !ruta.includes(".js") && !ruta.match(/\.+/)){
-    let rutaType=ruta+".ts"
-    let rutaJavaScript=ruta+".js"
-    if(existsSync(rutaJavaScript))
-     vscode.window.showTextDocument(vscode.Uri.parse(rutaJavaScript),{preview:false})
-    
+  let ruta = resolve(vscode.workspace.workspaceFolders[0].name, archivo)
+  if (!ruta.includes(".ts") && !ruta.includes(".js") && !ruta.match(/\.+/)) {
+    let rutaType = ruta + ".ts"
+    let rutaJavaScript = ruta + ".js"
+    if (existsSync(rutaJavaScript))
+      vscode.window.showTextDocument(vscode.Uri.parse(rutaJavaScript), { preview: false })
+
     else
-    vscode.window.showTextDocument(vscode.Uri.parse(rutaType),{preview:false})
+      vscode.window.showTextDocument(vscode.Uri.parse(rutaType), { preview: false })
   }
 
   else
-  vscode.window.showTextDocument(vscode.Uri.parse(ruta),{preview:false})
+    vscode.window.showTextDocument(vscode.Uri.parse(ruta), { preview: false })
 
 }
 
